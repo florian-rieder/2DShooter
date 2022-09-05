@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Characters/BaseCharacter/BaseCharacter.gd" type="Script" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://modulate_white.gdshader" type="Shader" id=3]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 3 )
+shader_param/active = false
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+[sub_resource type="Animation" id=3]
+resource_name = "FlashWhite"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skin:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, true, false ]
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Skin:material:shader_param/active")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+
+[node name="BaseCharacter" type="KinematicBody2D" groups=["Character"]]
+script = ExtResource( 1 )
+
+[node name="Skin" type="Sprite" parent="."]
+material = SubResource( 1 )
+scale = Vector2( 0.3125, 0.609375 )
+texture = ExtResource( 2 )
+
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+method_call_mode = 1
+anims/FlashWhite = SubResource( 3 )
+anims/RESET = SubResource( 4 )

@@ -1,0 +1,48 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Characters/BaseCharacter/BaseCharacter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Player/ShakeCamera2D.gd" type="Script" id=2]
+[ext_resource path="res://icon.png" type="Texture" id=3]
+[ext_resource path="res://pixelate.gdshader" type="Shader" id=4]
+[ext_resource path="res://Characters/Player/CameraFocus.gd" type="Script" id=5]
+[ext_resource path="res://Weapon/Weapon.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Characters/Player/Player.gd" type="Script" id=7]
+[ext_resource path="res://modulate_white.gdshader" type="Shader" id=8]
+[ext_resource path="res://Weapon/Data/test_weapon.tres" type="Resource" id=9]
+
+[sub_resource type="ShaderMaterial" id=2]
+resource_local_to_scene = true
+shader = ExtResource( 8 )
+shader_param/active = false
+
+[sub_resource type="ShaderMaterial" id=1]
+shader = ExtResource( 4 )
+shader_param/pixelSize = 4
+
+[node name="Player" groups=["Player"] instance=ExtResource( 1 )]
+script = ExtResource( 7 )
+speed = 200
+
+[node name="Skin" parent="." index="0"]
+material = SubResource( 2 )
+
+[node name="CameraFocus" type="Node2D" parent="." index="2"]
+script = ExtResource( 5 )
+distance = Vector2( 100, 100 )
+
+[node name="Camera2D" type="Camera2D" parent="CameraFocus" index="0"]
+material = SubResource( 1 )
+current = true
+smoothing_enabled = true
+smoothing_speed = 4.0
+script = ExtResource( 2 )
+
+[node name="DebugSprite" type="Sprite" parent="CameraFocus" index="1"]
+visible = false
+modulate = Color( 1, 0, 0.913725, 1 )
+self_modulate = Color( 1, 0, 0.866667, 1 )
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 3 )
+
+[node name="Weapon" parent="." index="3" instance=ExtResource( 6 )]
+weapon = ExtResource( 9 )

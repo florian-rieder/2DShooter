@@ -1,0 +1,14 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Weapon/Data/WeaponResource.gd" type="Script" id=1]
+[ext_resource path="res://Projectile/Projectile.tscn" type="PackedScene" id=2]
+[ext_resource path="res://audio/Wobbly_shooter.wav" type="AudioStream" id=3]
+
+[resource]
+script = ExtResource( 1 )
+rate_of_fire = 100
+inaccuracy = 0.35
+kickback = 75
+shake_trauma = 0.23
+projectile = ExtResource( 2 )
+fire_sounds = [ ExtResource( 3 ) ]

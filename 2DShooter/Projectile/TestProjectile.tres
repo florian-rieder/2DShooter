@@ -6,7 +6,9 @@
 
 [resource]
 script = ExtResource( 1 )
-impact = ExtResource( 3 )
-impact_sounds = [ ExtResource( 2 ) ]
 speed = 500
 damage = 20
+impact = ExtResource( 3 )
+impact_sounds = [ ExtResource( 2 ) ]
+impact_quantity = 1
+impact_deviation = 0

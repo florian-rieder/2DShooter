@@ -6,9 +6,10 @@
 
 [resource]
 script = ExtResource( 1 )
+projectile_angles = [ 0.0 ]
 rate_of_fire = 100
 inaccuracy = 0.35
-kickback = 75
+kickback = 100
 shake_trauma = 0.23
 projectile = ExtResource( 2 )
 fire_sounds = [ ExtResource( 3 ) ]

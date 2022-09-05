@@ -21,8 +21,10 @@ material = SubResource( 2 )
 
 [node name="DetectionArea" type="Area2D" parent="." index="3"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" index="0"]
+[node name="DetectionShape" type="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource( 1 )
+
+[node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="." index="4"]
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]

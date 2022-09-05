@@ -13,7 +13,7 @@ extents = Vector2( 15.5, 95.5 )
 [node name="Node2D" type="YSort"]
 
 [node name="Wall" type="StaticBody2D" parent="."]
-position = Vector2( 300, 0 )
+position = Vector2( 320, 0 )
 
 [node name="Sprite" type="Sprite" parent="Wall"]
 scale = Vector2( 0.5, 3 )
@@ -40,8 +40,8 @@ powerup = ExtResource( 1 )
 [node name="Player" parent="Entities" instance=ExtResource( 3 )]
 
 [node name="SpawnPoint" parent="Entities" instance=ExtResource( 6 )]
-position = Vector2( 344, -75 )
-rect = Rect2( 0, 0, 150, 150 )
+position = Vector2( 364, -50 )
+rect = Rect2( 0, 0, 100, 100 )
 entity_layer = NodePath("..")
 
 [node name="SpawnPoint2" parent="Entities" instance=ExtResource( 6 )]

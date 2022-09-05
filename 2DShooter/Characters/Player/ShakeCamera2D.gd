@@ -39,7 +39,6 @@ func shake():
 func add_trauma(amount):
     trauma = min(trauma + amount, 1.0)
 
-
 func _on_Weapon_shot_fired(_weapon_kickback, weapon_trauma):
     if trauma < 0.35:
         add_trauma(weapon_trauma)

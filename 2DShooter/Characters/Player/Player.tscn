@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Characters/BaseCharacter/BaseCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/ShakeCamera2D.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Weapon/Weapon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=7]
 [ext_resource path="res://modulate_white.gdshader" type="Shader" id=8]
-[ext_resource path="res://Weapon/Data/test_weapon.tres" type="Resource" id=9]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -45,4 +44,6 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
 [node name="Weapon" parent="." index="3" instance=ExtResource( 6 )]
-weapon = ExtResource( 9 )
+
+[connection signal="shot_fired" from="Weapon" to="." method="_on_Weapon_shot_fired"]
+[connection signal="shot_fired" from="Weapon" to="CameraFocus/Camera2D" method="_on_Weapon_shot_fired"]

@@ -24,17 +24,21 @@ func _on_Projectile_body_entered(body):
         body.call('take_hit', projectile.damage)
     queue_free()
 
+
 func spawn_impact():
     var root = get_tree().get_root()
-    var impact = projectile.impact.instance()
-    impact.global_position = global_position
-    root.add_child(impact)
-#    for _i in range(impact_quantity):
-#        var impact = Impact.instance()
-#        var deviation = Vector2(randi() % impact_deviation, randi() % impact_deviation)
-#        root.add_child(impact)
-#        impact.playing = true
-#        impact.global_position = global_position + deviation
+#    var impact = projectile.impact.instance()
+#    impact.global_position = global_position
+#    root.add_child(impact)
+    for _i in range(projectile.impact_quantity):
+        var impact = projectile.impact.instance()
+
+        var deviation = Vector2.ZERO
+        if projectile.impact_deviation != 0:
+            deviation = Vector2(randi() % projectile.impact_deviation, randi() % projectile.impact_deviation)
+
+        root.add_child(impact)
+        impact.global_position = global_position + deviation
 
 
 func play_hit_sound(): # To avoid the sound from clipping, we generate a new audio node each time then we delete it

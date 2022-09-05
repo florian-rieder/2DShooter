@@ -29,8 +29,8 @@ func get_input(_delta):
 
 
 func powerup(powerup):
-    if powerup.is_type('WeaponResource'):
-        weapon.update_weapon(powerup)
+    if powerup is WeaponResource:
+        weapon.set_weapon(powerup)
 
 
 func die():
@@ -39,6 +39,6 @@ func die():
     get_tree().reload_current_scene()
 
 
-func _on_Weapon_shot_fired(kickback):
+func _on_Weapon_shot_fired(kickback, _shake_trauma):
     var direction = (global_position - get_global_mouse_position()).normalized()
     move_and_slide(direction * kickback)

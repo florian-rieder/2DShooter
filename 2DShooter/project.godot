@@ -64,6 +64,7 @@ _global_script_class_icons={
 
 config/name="2D Shooter"
 run/main_scene="res://test.tscn"
+boot_splash/bg_color=Color( 0.258824, 0.258824, 0.258824, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -72,10 +73,10 @@ Director="*res://Director/Director.gd"
 
 [display]
 
-window/size/width=768
-window/size/height=432
-window/size/test_width=1536
-window/size/test_height=864
+window/size/width=640
+window/size/height=360
+window/size/test_width=1280
+window/size/test_height=720
 window/stretch/aspect="keep"
 window/stretch/shrink=4.0
 

@@ -1,7 +1,7 @@
 extends BaseCharacter
 
 
-onready var camera_focus = $CameraFocus
+onready var lookahead = $Lookahead
 onready var weapon = $Weapon
 
 
@@ -16,14 +16,14 @@ func get_input(_delta):
         velocity.y -= 1
 
     # DEBUG
-    if Input.is_key_pressed(KEY_C):
-        $CameraFocus/Camera2D.add_trauma(0.1)
+#    if Input.is_key_pressed(KEY_C):
+#        $Camera2D.add_trauma(0.1)
 
     if Input.is_action_pressed('fire'):
             weapon.fire()
 
     # give the current direction to the camera focus
-    $CameraFocus.call('direction', velocity)
+    lookahead.call('direction', velocity, get_local_mouse_position())
     # Make sure diagonal movement isn't faster
     velocity = velocity.normalized() * speed
 

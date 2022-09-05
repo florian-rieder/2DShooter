@@ -4,11 +4,11 @@ class_name ShakeCamera2D
 export var decay = 0.8  # How quickly the shaking stops [0, 1].
 export var max_offset = Vector2(100, 50)  # Maximum hor/ver shake in pixels.
 export var max_roll = 0.1  # Maximum rotation in radians (use sparingly).
-#export (NodePath) var target  # Assign the node this camera will follow.
+export (NodePath) onready var target = get_node(target)  # Assign the node this camera will follow.
 
+onready var noise = OpenSimplexNoise.new()
 var trauma = 0.0  # Current shake strength.
 var trauma_power = 2  # Trauma exponent. Use [2, 3].
-onready var noise = OpenSimplexNoise.new()
 var noise_y = 0
 
 func _ready():
@@ -18,8 +18,8 @@ func _ready():
     noise.octaves = 2
 
 func _process(delta):
-    #if target:
-    #	global_position = get_node(target).global_position
+    if target:
+        global_position = target.global_position
     if trauma:
         trauma = max(trauma - decay * delta, 0)
         shake()

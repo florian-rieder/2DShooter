@@ -27,9 +27,6 @@ func _on_Projectile_body_entered(body):
 
 func spawn_impact():
     var root = get_tree().get_root()
-#    var impact = projectile.impact.instance()
-#    impact.global_position = global_position
-#    root.add_child(impact)
     for _i in range(projectile.impact_quantity):
         var impact = projectile.impact.instance()
 

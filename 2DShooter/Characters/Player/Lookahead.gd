@@ -1,15 +1,15 @@
 extends Node2D
 
+
 export var distance = Vector2(100, 50) # different values on x and y axis
-
 var kickback_vector = Vector2.ZERO
-# Moves the camera focus in the direction the player is facing
-func direction(direction):
-    var mousevec = get_local_mouse_position() / 3
-    var movement_vector = direction * distance
-    position = movement_vector + mousevec + kickback_vector
-    kickback_vector = Vector2.ZERO
 
+# Moves the camera focus in the direction the player is facing
+func direction(direction, mouse_pos):
+    # mouse_pos: position of the mouse relative to the player
+    var movement_vector = direction.normalized() * distance
+    position = movement_vector/2 + mouse_pos/3 + kickback_vector
+    kickback_vector = Vector2.ZERO
 
 
 func _on_Weapon_shot_fired(kickback):

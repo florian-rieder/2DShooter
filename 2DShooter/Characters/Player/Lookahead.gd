@@ -3,6 +3,7 @@ extends Node2D
 
 export var distance = Vector2(100, 50) # different values on x and y axis
 var kickback_vector = Vector2.ZERO
+#var viewport_size = 
 
 # Moves the camera focus in the direction the player is facing
 func direction(direction, mouse_pos):

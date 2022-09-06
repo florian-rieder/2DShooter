@@ -2,14 +2,16 @@
 
 [ext_resource path="res://Weapon/Data/WeaponResource.gd" type="Script" id=1]
 [ext_resource path="res://Projectile/Projectile.tscn" type="PackedScene" id=2]
-[ext_resource path="res://audio/Wobbly_shooter.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/Burst.wav" type="AudioStream" id=3]
 
 [resource]
 script = ExtResource( 1 )
-projectile_angles = [ 0.0 ]
-rate_of_fire = 100
-inaccuracy = 0.35
+name = "Burst"
+projectile_angles = [ 0.1, -0.1 ]
+rate_of_fire = 500
+inaccuracy = 0.4
 kickback = 100
-shake_trauma = 0.23
+shake_trauma = 0.11
+max_trauma = 0.4
 projectile = ExtResource( 2 )
 fire_sounds = [ ExtResource( 3 ) ]

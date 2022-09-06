@@ -3,6 +3,7 @@ extends BaseCharacter
 
 onready var lookahead = $Lookahead
 onready var weapon = $Weapon
+onready var camera = $Camera2D
 
 
 func get_input(_delta):
@@ -16,8 +17,8 @@ func get_input(_delta):
         velocity.y -= 1
 
     # DEBUG
-#    if Input.is_key_pressed(KEY_C):
-#        $Camera2D.add_trauma(0.1)
+    if Input.is_key_pressed(KEY_C):
+        camera.add_trauma(0.1)
 
     if Input.is_action_pressed('fire'):
             weapon.fire()
@@ -39,6 +40,6 @@ func die():
     get_tree().reload_current_scene()
 
 
-func _on_Weapon_shot_fired(kickback, _shake_trauma):
+func _on_Weapon_shot_fired(weapon):
     var direction = (global_position - get_global_mouse_position()).normalized()
-    move_and_slide(direction * kickback)
+    move_and_slide(direction * weapon.kickback)

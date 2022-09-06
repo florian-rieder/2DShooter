@@ -1,6 +1,7 @@
 extends Camera2D
 class_name ShakeCamera2D
 
+
 export var decay = 0.8  # How quickly the shaking stops [0, 1].
 export var max_offset = Vector2(100, 50)  # Maximum hor/ver shake in pixels.
 export var max_roll = 0.1  # Maximum rotation in radians (use sparingly).
@@ -11,20 +12,30 @@ var trauma = 0.0  # Current shake strength.
 var trauma_power = 2  # Trauma exponent. Use [2, 3].
 var noise_y = 0
 
-func _ready():
+
+func _ready() -> void:
     randomize()
     noise.seed = randi()
     noise.period = 4
     noise.octaves = 2
 
-func _process(delta):
+
+func _process(delta) -> void:
     if target:
-        global_position = target.global_position
+        # We subtract the camera offset in order to avoid the screenshake
+        # moving the mouse, which then moves the lookahead, which then moves
+        # the camera.
+        # This feedback loop, which creates an ugly stutter, is avoided by
+        # substracting the camera offset from the target position. That way,
+        # the lookahead is offset in the opposite direction of the camera
+        # offset, making it immobile relative to the world.
+        global_position = target.global_position - offset
     if trauma:
         trauma = max(trauma - decay * delta, 0)
         shake()
 
-func shake():
+
+func shake() -> void:
     var amount = pow(trauma, trauma_power)
     noise_y += 1
     # Using noise
@@ -36,9 +47,11 @@ func shake():
 #	offset.x = max_offset.x * amount * rand_range(-1, 1)
 #	offset.y = max_offset.y * amount * rand_range(-1, 1)
 
-func add_trauma(amount):
+
+func add_trauma(amount) -> void:
     trauma = min(trauma + amount, 1.0)
 
-func _on_Weapon_shot_fired(_weapon_kickback, weapon_trauma):
-    if trauma < 0.35:
-        add_trauma(weapon_trauma)
+
+func _on_Weapon_shot_fired(weapon: WeaponResource) -> void:
+    if trauma < weapon.max_trauma:
+        add_trauma(weapon.shake_trauma)

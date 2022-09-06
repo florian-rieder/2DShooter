@@ -6,12 +6,11 @@ export (Resource) var weapon setget set_weapon, get_weapon
 
 onready var muzzle = $Muzzle
 onready var _root = get_tree().get_root()
-
 # rate of fire = shots / minute = r/m
 # x = seconds / shot = s/r
 # r/m = n
 # x = 60/(r/m) = s/r
-onready var _seconds_per_shot = 60.0 / self.weapon.rate_of_fire # the casting is important
+onready var _seconds_per_shot = 60.0 / weapon.rate_of_fire # the casting is important
 var _time_since_last_shot = 0
 
 
@@ -27,11 +26,11 @@ func fire():
         return
 
     # spawns a projectile in the direction the muzzle is pointing
-    for direction in weapon.projectile_angles:
-        spawn_projectile(direction)
+    for angle in weapon.projectile_angles:
+        spawn_projectile(angle)
 
     # emit feedback
-    emit_signal('shot_fired', weapon.kickback, weapon.shake_trauma)
+    emit_signal('shot_fired', weapon)
     play_fire_sound()
 
 
@@ -46,9 +45,9 @@ func can_fire():
 
 
 func spawn_projectile(deviation = 0.0):
-    var inac = self.weapon.inaccuracy/2 # inaccuracy
+    var inac = weapon.inaccuracy/2 # inaccuracy
     var random_deviation = rand_range(-inac, inac)
-    var b = self.weapon.projectile.instance()
+    var b = weapon.projectile.instance()
     owner.add_child(b)
     b.global_transform = muzzle.global_transform
     # inaccuracy and deviation
@@ -64,8 +63,7 @@ func play_fire_sound():
     audio_node.pitch_scale = rand_range(0.95, 1.05)
     _root.add_child(audio_node)
     audio_node.play()
-    yield(get_tree().create_timer(2), "timeout")
-    audio_node.queue_free()
+    audio_node.connect("finished", audio_node, "queue_free")
 
 
 func get_weapon() -> WeaponResource:
@@ -75,4 +73,4 @@ func get_weapon() -> WeaponResource:
 func set_weapon(new_weapon):
     weapon = new_weapon
     # set new fire rate
-    _seconds_per_shot = 60.0 / self.weapon.rate_of_fire # the casting is important
+    _seconds_per_shot = 60.0 / weapon.rate_of_fire # the casting is important

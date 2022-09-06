@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SlowButHeavy.wav-e037f96334ea358ea4710f949e633c61.sample"
+
+[deps]
+
+source_file="res://audio/SlowButHeavy.wav"
+dest_files=[ "res://.import/SlowButHeavy.wav-e037f96334ea358ea4710f949e633c61.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

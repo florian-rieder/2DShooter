@@ -40,6 +40,6 @@ func die():
     get_tree().reload_current_scene()
 
 
-func _on_Weapon_shot_fired(weapon):
+func _on_Weapon_shot_fired(weapon_data):
     var direction = (global_position - get_global_mouse_position()).normalized()
-    move_and_slide(direction * weapon.kickback)
+    move_and_slide(direction * weapon_data.kickback)

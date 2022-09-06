@@ -38,7 +38,6 @@ script = ExtResource( 5 )
 distance = Vector2( 100, 100 )
 
 [node name="DebugSprite" type="Sprite" parent="Lookahead" index="0"]
-visible = false
 modulate = Color( 1, 0, 0.913725, 1 )
 self_modulate = Color( 1, 0, 0.866667, 1 )
 scale = Vector2( 0.2, 0.2 )

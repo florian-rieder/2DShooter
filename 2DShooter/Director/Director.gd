@@ -1,14 +1,13 @@
 extends Node
 
-onready var _tree = get_tree()
 
+onready var _tree = get_tree()
 var enemy_types = {
     'BaseEnemy': preload('res://Characters/BaseEnemy/BaseEnemy.tscn'),
     }
-
 var sensed_difficulty : float
 var target_difficulty : float
-var max_enemies : int = 500
+var max_enemies : int = 100
 
 # call function on each member of a group:
 # get_tree().call_group("my_group","my_function",args...)
@@ -16,14 +15,15 @@ var max_enemies : int = 500
 var c = 0
 func _process(delta):
     if c > 1:
-        spawn_enemies()
+        var n_enemies = len(get_enemies())
+        if n_enemies < max_enemies:
+            spawn_enemies()
         c = 0
     c+=delta
 
+
 func estimate_difficulty():
     # estimate current difficulty level based on metrics
-    var n_enemies = len(get_enemies())
-    
     pass
 
 

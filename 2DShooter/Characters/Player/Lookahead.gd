@@ -8,7 +8,7 @@ var kickback_vector = Vector2.ZERO
 # Moves the camera focus in the direction the player is facing
 func direction(direction, mouse_pos):
     # mouse_pos: position of the mouse relative to the player
-    var movement_vector = direction.normalized() * distance
+    var movement_vector = direction * distance
     position = movement_vector/2 + mouse_pos/3 + kickback_vector
     kickback_vector = Vector2.ZERO
 

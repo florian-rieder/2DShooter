@@ -61,6 +61,7 @@ func play_fire_sound():
     var pick_sound = randi() % weapon.fire_sounds.size() # Pick a random sound
     audio_node.stream = weapon.fire_sounds[pick_sound]
     audio_node.pitch_scale = rand_range(0.95, 1.05)
+    audio_node.bus = "SFX"
     _root.add_child(audio_node)
     audio_node.play()
     audio_node.connect("finished", audio_node, "queue_free")

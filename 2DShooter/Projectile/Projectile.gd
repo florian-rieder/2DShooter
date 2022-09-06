@@ -37,6 +37,7 @@ func play_hit_sound(): # To avoid the sound from clipping, we generate a new aud
     var pick_sound = randi() % projectile.impact_sounds.size() # Pick a random sound
     audio_node.stream = projectile.impact_sounds[pick_sound]
     audio_node.pitch_scale = rand_range(0.95, 1.05)
+    audio_node.bus = "SFX"
     _root.add_child(audio_node)
     audio_node.play()
     # destroy the node when the sound is finished playing

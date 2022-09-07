@@ -6,6 +6,9 @@ onready var _root = get_tree().get_root()
 
 var moving = true
 
+func _ready():
+    $Sprite.frames = projectile.frames
+
 func _physics_process(delta):
     if not moving:
         return

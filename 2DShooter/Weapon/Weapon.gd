@@ -3,6 +3,7 @@ extends Node2D
 signal shot_fired
 
 export (Resource) var weapon setget set_weapon, get_weapon
+export (PackedScene) var projectile_scene
 
 onready var muzzle = $Muzzle
 onready var _root = get_tree().get_root()
@@ -47,7 +48,8 @@ func can_fire():
 func spawn_projectile(deviation = 0.0):
     var inac = weapon.inaccuracy/2 # inaccuracy
     var random_deviation = rand_range(-inac, inac)
-    var b = weapon.projectile.instance()
+    var b = projectile_scene.instance()
+    b.projectile = weapon.projectile
     owner.add_child(b)
     b.global_transform = muzzle.global_transform
     # inaccuracy and deviation

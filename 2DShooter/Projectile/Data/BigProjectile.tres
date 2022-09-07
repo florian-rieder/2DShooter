@@ -1,0 +1,45 @@
+[gd_resource type="Resource" load_steps=12 format=2]
+
+[ext_resource path="res://Projectile/ProjectileResource.gd" type="Script" id=1]
+[ext_resource path="res://Impact/Impact.tscn" type="PackedScene" id=2]
+[ext_resource path="res://audio/hit_2.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/hit_1.wav" type="AudioStream" id=4]
+[ext_resource path="res://Projectile/All_Fire_Bullet_Pixel_16x16.png" type="Texture" id=5]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 5 )
+region = Rect2( 0, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 5 )
+region = Rect2( 16, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=3]
+atlas = ExtResource( 5 )
+region = Rect2( 32, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 5 )
+region = Rect2( 48, 16, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 5 )
+region = Rect2( 64, 16, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ) ],
+"loop": true,
+"name": "default",
+"speed": 24.0
+} ]
+
+[resource]
+script = ExtResource( 1 )
+speed = 400
+damage = 200
+frames = SubResource( 6 )
+impact = ExtResource( 2 )
+impact_sounds = [ ExtResource( 4 ), ExtResource( 3 ) ]
+impact_quantity = 1
+impact_deviation = 0

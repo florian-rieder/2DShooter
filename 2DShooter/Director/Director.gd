@@ -16,6 +16,7 @@ var c = 0
 func _process(delta):
     if c > 1:
         var n_enemies = len(get_enemies())
+        estimate_difficulty()
         if n_enemies < max_enemies:
             spawn_enemies()
         c = 0
@@ -23,6 +24,10 @@ func _process(delta):
 
 
 func estimate_difficulty():
+    var player = get_player()
+    var weapon = player.weapon
+#    var player_dps = weapon._seconds_per_shot * weapon.weapon.projectile.damage * len(weapon.weapon.projectile_angles)
+#    print(player_dps)
     # estimate current difficulty level based on metrics
     pass
 
@@ -72,4 +77,4 @@ func get_enemies():
 
 
 func get_player():
-    return _tree.get_nodes_in_group('Player')
+    return _tree.get_nodes_in_group('Player')[0]

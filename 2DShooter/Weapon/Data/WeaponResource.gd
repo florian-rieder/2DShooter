@@ -11,5 +11,5 @@ export var shake_trauma : float
 export var max_trauma : float
 
 # Note: It is the projectile that inflicts damage, not the weapon !
-export (PackedScene) var projectile
+export (Resource) var projectile
 export (Array, Resource) var fire_sounds

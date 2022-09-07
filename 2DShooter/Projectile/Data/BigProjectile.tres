@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=12 format=2]
 
-[ext_resource path="res://Projectile/ProjectileResource.gd" type="Script" id=1]
-[ext_resource path="res://Impact/Impact.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Projectile/Data/ProjectileResource.gd" type="Script" id=1]
+[ext_resource path="res://Impact/Explosion/Explosion.tscn" type="PackedScene" id=2]
 [ext_resource path="res://audio/hit_2.wav" type="AudioStream" id=3]
 [ext_resource path="res://audio/hit_1.wav" type="AudioStream" id=4]
 [ext_resource path="res://Projectile/All_Fire_Bullet_Pixel_16x16.png" type="Texture" id=5]

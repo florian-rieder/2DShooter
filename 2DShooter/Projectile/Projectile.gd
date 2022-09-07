@@ -31,7 +31,7 @@ func spawn_impact():
         if projectile.impact_deviation != 0:
             deviation = Vector2(randi() % projectile.impact_deviation, randi() % projectile.impact_deviation)
 
-        root.add_child(impact)
+        root.call_deferred('add_child', impact)
         impact.global_position = global_position + deviation
 
 

@@ -22,7 +22,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "ProjectileResource",
 "language": "GDScript",
-"path": "res://Projectile/ProjectileResource.gd"
+"path": "res://Projectile/Data/ProjectileResource.gd"
 }, {
 "base": "Camera2D",
 "class": "ShakeCamera2D",

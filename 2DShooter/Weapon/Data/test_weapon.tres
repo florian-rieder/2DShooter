@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Weapon/Data/WeaponResource.gd" type="Script" id=1]
 [ext_resource path="res://audio/Wobbly_shooter.wav" type="AudioStream" id=2]
-[ext_resource path="res://Projectile/TestProjectile.tres" type="Resource" id=3]
+[ext_resource path="res://Projectile/Data/TestProjectile.tres" type="Resource" id=3]
 
 [resource]
 script = ExtResource( 1 )

@@ -50,7 +50,7 @@ func spawn_projectile(deviation = 0.0):
     var random_deviation = rand_range(-inac, inac)
     var b = projectile_scene.instance()
     b.projectile = weapon.projectile
-    owner.add_child(b)
+    _root.add_child(b)
     b.global_transform = muzzle.global_transform
     # inaccuracy and deviation
     b.set_rotation(b.rotation + deviation + random_deviation)

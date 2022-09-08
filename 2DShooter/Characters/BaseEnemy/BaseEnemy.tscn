@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Characters/BaseCharacter/BaseCharacter.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/BaseEnemy/BaseEnemy.gd" type="Script" id=2]
 [ext_resource path="res://modulate_white.gdshader" type="Shader" id=3]
+[ext_resource path="res://StateMachine/StateMachine.gd" type="Script" id=4]
+[ext_resource path="res://Characters/BaseEnemy/Chase.gd" type="Script" id=5]
+[ext_resource path="res://Characters/BaseEnemy/Wander.gd" type="Script" id=6]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -20,11 +23,24 @@ health = 30
 material = SubResource( 2 )
 
 [node name="DetectionArea" type="Area2D" parent="." index="3"]
+show_behind_parent = true
+input_pickable = false
+monitorable = false
 
 [node name="DetectionShape" type="CollisionShape2D" parent="DetectionArea" index="0"]
 shape = SubResource( 1 )
 
 [node name="VisibilityEnabler2D" type="VisibilityEnabler2D" parent="." index="4"]
+
+[node name="StateMachine" type="Node" parent="." index="5"]
+script = ExtResource( 4 )
+initial_state = NodePath("Wander")
+
+[node name="Wander" type="Node" parent="StateMachine" index="0"]
+script = ExtResource( 6 )
+
+[node name="Chase" type="Node" parent="StateMachine" index="1"]
+script = ExtResource( 5 )
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]

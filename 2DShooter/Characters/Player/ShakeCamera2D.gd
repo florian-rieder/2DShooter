@@ -55,3 +55,6 @@ func add_trauma(amount) -> void:
 func _on_Weapon_shot_fired(weapon: WeaponResource) -> void:
     if trauma < weapon.max_trauma:
         add_trauma(weapon.shake_trauma)
+
+func _on_Explosion(shake_trauma):
+    add_trauma(shake_trauma)

@@ -7,6 +7,7 @@ onready var camera = $Camera2D
 
 
 func get_input(_delta):
+    velocity = Vector2.ZERO
     if Input.is_action_pressed('right'):
         velocity.x += 1
     if Input.is_action_pressed('left'):

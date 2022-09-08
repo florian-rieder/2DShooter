@@ -7,7 +7,7 @@ var enemy_types = {
     }
 var sensed_difficulty : float
 var target_difficulty : float
-var max_enemies : int = 100
+var max_enemies : int = 300
 
 # call function on each member of a group:
 # get_tree().call_group("my_group","my_function",args...)

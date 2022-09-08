@@ -26,6 +26,5 @@ func take_hit(damage):
 
 
 func _physics_process(delta):
-    velocity = Vector2.ZERO
     get_input(delta)
-    velocity = move_and_slide(velocity)
+    move_and_slide(velocity)

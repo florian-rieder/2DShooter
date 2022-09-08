@@ -27,4 +27,6 @@ func take_hit(damage):
 
 func _physics_process(delta):
     get_input(delta)
-    move_and_slide(velocity)
+    velocity = move_and_slide(velocity)
+    if velocity.length() > 10:
+        $DustParticles.emitting = true

@@ -7,7 +7,7 @@ var enemy_types = {
     }
 var sensed_difficulty : float
 var target_difficulty : float
-var max_enemies : int = 300
+var max_enemies : int = 100
 
 # call function on each member of a group:
 # get_tree().call_group("my_group","my_function",args...)
@@ -16,6 +16,7 @@ var c = 0
 func _process(delta):
     if c > 1:
         var n_enemies = len(get_enemies())
+        #print(n_enemies)
         estimate_difficulty()
         if n_enemies < max_enemies:
             spawn_enemies()
@@ -64,7 +65,7 @@ func spawn_enemies():
     var selected_spawnpoint = possible_spawnpoints[0]
 
     # TODO: choose enemy types and numbers
-    for _i in range(randi() % 5):
+    for _i in range(randi() % 6):
         selected_spawnpoint.spawn_random(enemy_types['BaseEnemy'])
 
 

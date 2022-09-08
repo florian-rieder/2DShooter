@@ -72,8 +72,8 @@ anims/FlashWhite = SubResource( 3 )
 anims/RESET = SubResource( 4 )
 
 [node name="DustParticles" type="CPUParticles2D" parent="."]
+show_behind_parent = true
 material = SubResource( 5 )
-z_index = 900
 z_as_relative = false
 emitting = false
 amount = 4

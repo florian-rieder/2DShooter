@@ -29,12 +29,6 @@ func get_input(delta):
     else:
         state_machine.transition_to('Wander')
 
-    if direction.x < 0:
-        # flip on x axis (Maybe, really can't tell)
-        scale.x = -1
-    else:
-        scale.x = 1
-
 
 func die():
     queue_free()

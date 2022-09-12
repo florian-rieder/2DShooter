@@ -7,6 +7,8 @@ export var speed : int = 100
 
 var velocity : Vector2 = Vector2.ZERO
 
+onready var top = $Top
+
 
 func get_input(_delta):
     # Input control callback

@@ -2,7 +2,7 @@ extends BaseCharacter
 
 
 onready var lookahead = $Lookahead
-onready var weapon = $Weapon
+onready var weapon = $Top/Weapon
 onready var camera = $Camera2D
 
 
@@ -22,12 +22,14 @@ func get_input(_delta):
         camera.add_trauma(0.1)
 
     if Input.is_action_pressed('fire'):
-            weapon.fire()
+        weapon.fire()
 
     # give the current direction to the camera focus
     lookahead.call('direction', velocity, get_local_mouse_position())
     # Make sure diagonal movement isn't faster
     velocity = velocity.normalized() * speed
+
+    top.look_at(get_global_mouse_position())
 
 
 func powerup(powerup):

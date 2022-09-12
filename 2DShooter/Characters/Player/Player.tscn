@@ -22,7 +22,9 @@ shader_param/pixelSize = 4
 script = ExtResource( 7 )
 speed = 200
 
-[node name="Skin" parent="." index="0"]
+[node name="Weapon" parent="Top" index="0" instance=ExtResource( 6 )]
+
+[node name="TopSprite" parent="Top" index="1"]
 material = SubResource( 2 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
@@ -44,7 +46,5 @@ self_modulate = Color( 1, 0, 0.866667, 1 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
-[node name="Weapon" parent="." index="4" instance=ExtResource( 6 )]
-
-[connection signal="shot_fired" from="Weapon" to="." method="_on_Weapon_shot_fired"]
-[connection signal="shot_fired" from="Weapon" to="Camera2D" method="_on_Weapon_shot_fired"]
+[connection signal="shot_fired" from="Top/Weapon" to="." method="_on_Weapon_shot_fired"]
+[connection signal="shot_fired" from="Top/Weapon" to="Camera2D" method="_on_Weapon_shot_fired"]

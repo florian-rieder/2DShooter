@@ -13,3 +13,4 @@ func physics_update(_delta: float) -> void:
     owner.direction = owner.global_position.direction_to(owner.target.global_position)
     owner.direction = owner.direction.normalized()
     owner.velocity = owner.direction * owner.speed
+    owner.top.look_at(owner.target.position)

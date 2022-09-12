@@ -14,12 +14,8 @@ onready var _root = get_tree().get_root()
 onready var _seconds_per_shot = 60.0 / weapon.rate_of_fire # the casting is important
 var _time_since_last_shot = 0
 
-
 func _physics_process(delta):
-    # align weapon with mouse
-    look_at(get_global_mouse_position())
     _time_since_last_shot += delta
-
 
 func fire():
     # check if we can fire

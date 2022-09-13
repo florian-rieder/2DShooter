@@ -17,6 +17,7 @@
 extents = Vector2( 15.5, 95.5 )
 
 [node name="Game" type="Node2D"]
+position = Vector2( 667, 569 )
 
 [node name="Entities" type="YSort" parent="."]
 

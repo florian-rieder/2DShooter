@@ -48,6 +48,11 @@ _global_script_classes=[ {
 "class": "WeaponResource",
 "language": "GDScript",
 "path": "res://Weapon/Data/WeaponResource.gd"
+}, {
+"base": "Sprite",
+"class": "paint",
+"language": "GDScript",
+"path": "res://Blood/Surface.gd"
 } ]
 _global_script_class_icons={
 "BaseCharacter": "",
@@ -57,7 +62,8 @@ _global_script_class_icons={
 "SpawnPoint": "",
 "State": "",
 "StateMachine": "",
-"WeaponResource": ""
+"WeaponResource": "",
+"paint": ""
 }
 
 [application]
@@ -70,6 +76,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Director="*res://Director/Director.gd"
+Surface="*res://Blood/Surface.tscn"
 
 [debug]
 

@@ -4,6 +4,7 @@ class_name BaseCharacter
 
 export var health : int = 100
 export var speed : int = 100
+export (PackedScene) var blood
 
 var velocity : Vector2 = Vector2.ZERO
 
@@ -23,6 +24,13 @@ func die():
 func take_hit(damage):
     health -= damage
     $AnimationPlayer.play("FlashWhite")
+
+    var root = get_tree().get_root()
+    for _i in range(8):
+        var blood_instance : Area2D = blood.instance()
+        blood_instance.global_position = global_position
+        root.call_deferred("add_child", blood_instance)
+
     if health <= 0:
         die()
 

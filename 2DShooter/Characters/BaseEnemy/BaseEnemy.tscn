@@ -24,6 +24,7 @@ health = 30
 material = SubResource( 2 )
 
 [node name="DetectionArea" type="Area2D" parent="." index="3"]
+visible = false
 show_behind_parent = true
 input_pickable = false
 monitorable = false
@@ -45,6 +46,14 @@ script = ExtResource( 5 )
 
 [node name="Asleep" type="Node" parent="StateMachine" index="2"]
 script = ExtResource( 7 )
+
+[node name="LeftRay" type="RayCast2D" parent="." index="7"]
+enabled = true
+cast_to = Vector2( 15, 15 )
+
+[node name="RightRay" type="RayCast2D" parent="." index="8"]
+enabled = true
+cast_to = Vector2( 15, -15 )
 
 [connection signal="body_entered" from="DetectionArea" to="." method="_on_DetectionArea_body_entered"]
 [connection signal="body_exited" from="DetectionArea" to="." method="_on_DetectionArea_body_exited"]

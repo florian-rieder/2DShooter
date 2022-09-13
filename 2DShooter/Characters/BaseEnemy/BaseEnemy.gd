@@ -4,6 +4,9 @@ class_name BaseEnemy
 # State machine AI
 onready var state_machine = $StateMachine
 
+onready var left_ray = $LeftRay
+onready var right_ray = $RightRay
+
 var target = null
 var direction = Vector2.ZERO
 

@@ -16,7 +16,7 @@ var c = 0
 func _process(delta):
     if c > 1:
         var n_enemies = len(get_enemies())
-        print(n_enemies)
+        #print(n_enemies)
         estimate_difficulty()
         if n_enemies < max_enemies:
             spawn_enemies()

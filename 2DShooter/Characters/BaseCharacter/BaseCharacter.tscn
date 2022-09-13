@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Characters/BaseCharacter/BaseCharacter.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/Player_top_16.png" type="Texture" id=2]
 [ext_resource path="res://modulate_white.gdshader" type="Shader" id=3]
 [ext_resource path="res://Characters/DustParticle.png" type="Texture" id=4]
+[ext_resource path="res://Blood/Blood.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -58,6 +59,7 @@ colors = PoolColorArray( 0.486904, 0.486904, 0.486904, 1, 0.275967, 0.275967, 0.
 [node name="BaseCharacter" type="KinematicBody2D" groups=["Character"]]
 z_index = 1000
 script = ExtResource( 1 )
+blood = ExtResource( 5 )
 
 [node name="Top" type="Node2D" parent="."]
 

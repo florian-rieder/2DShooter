@@ -17,7 +17,7 @@ weapon = ExtResource( 2 )
 projectile_scene = ExtResource( 4 )
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( 26, 0 )
+position = Vector2( 8, 0 )
 
 [node name="Sprite" type="Sprite" parent="."]
 visible = false

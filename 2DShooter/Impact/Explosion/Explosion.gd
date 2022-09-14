@@ -17,7 +17,9 @@ func _ready():
     for body in bodies:
         if body.has_method('take_hit'):
             var distance = body.global_position.distance_to(global_position)/16
-            var effective_damage = damage/(distance*distance)
+            var effective_damage = damage
+            if distance != 0:
+                effective_damage = damage/(distance*distance)
             body.call('take_hit', round(effective_damage))
     
     $AnimatedSprite.playing = true

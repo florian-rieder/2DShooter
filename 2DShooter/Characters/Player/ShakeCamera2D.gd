@@ -11,6 +11,7 @@ onready var noise = OpenSimplexNoise.new()
 var trauma = 0.0  # Current shake strength.
 var trauma_power = 2  # Trauma exponent. Use [2, 3].
 var noise_y = 0
+export var speed = 100
 
 
 func _ready() -> void:
@@ -29,7 +30,8 @@ func _process(delta) -> void:
         # substracting the camera offset from the target position. That way,
         # the lookahead is offset in the opposite direction of the camera
         # offset, making it immobile relative to the world.
-        global_position = target.global_position - offset
+        # position = lerp(position, target.position, speed * delta)
+        global_position = lerp(global_position, target.global_position - offset, speed * delta)
     if trauma:
         trauma = max(trauma - decay * delta, 0)
         shake()

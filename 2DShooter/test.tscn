@@ -162,3 +162,78 @@ position = Vector2( 762, 208 )
 
 [node name="ExplosiveBarrel31" parent="." instance=ExtResource( 11 )]
 position = Vector2( 787, 174 )
+
+[node name="ExplosiveBarrel32" parent="." instance=ExtResource( 11 )]
+position = Vector2( 338, 348 )
+
+[node name="ExplosiveBarrel33" parent="." instance=ExtResource( 11 )]
+position = Vector2( 369, 365 )
+
+[node name="ExplosiveBarrel34" parent="." instance=ExtResource( 11 )]
+position = Vector2( 338, 401 )
+
+[node name="ExplosiveBarrel35" parent="." instance=ExtResource( 11 )]
+position = Vector2( 371, 425 )
+
+[node name="ExplosiveBarrel36" parent="." instance=ExtResource( 11 )]
+position = Vector2( 396, 391 )
+
+[node name="ExplosiveBarrel37" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1051, 317 )
+
+[node name="ExplosiveBarrel38" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1082, 334 )
+
+[node name="ExplosiveBarrel39" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1051, 370 )
+
+[node name="ExplosiveBarrel40" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1084, 394 )
+
+[node name="ExplosiveBarrel41" parent="." instance=ExtResource( 11 )]
+position = Vector2( 1109, 360 )
+
+[node name="ExplosiveBarrel42" parent="." instance=ExtResource( 11 )]
+position = Vector2( -267, -585 )
+
+[node name="ExplosiveBarrel43" parent="." instance=ExtResource( 11 )]
+position = Vector2( -236, -568 )
+
+[node name="ExplosiveBarrel44" parent="." instance=ExtResource( 11 )]
+position = Vector2( -267, -532 )
+
+[node name="ExplosiveBarrel45" parent="." instance=ExtResource( 11 )]
+position = Vector2( -234, -508 )
+
+[node name="ExplosiveBarrel46" parent="." instance=ExtResource( 11 )]
+position = Vector2( -209, -542 )
+
+[node name="ExplosiveBarrel47" parent="." instance=ExtResource( 11 )]
+position = Vector2( -815, -374 )
+
+[node name="ExplosiveBarrel48" parent="." instance=ExtResource( 11 )]
+position = Vector2( -784, -357 )
+
+[node name="ExplosiveBarrel49" parent="." instance=ExtResource( 11 )]
+position = Vector2( -815, -321 )
+
+[node name="ExplosiveBarrel50" parent="." instance=ExtResource( 11 )]
+position = Vector2( -782, -297 )
+
+[node name="ExplosiveBarrel51" parent="." instance=ExtResource( 11 )]
+position = Vector2( -757, -331 )
+
+[node name="ExplosiveBarrel52" parent="." instance=ExtResource( 11 )]
+position = Vector2( -180, -10 )
+
+[node name="ExplosiveBarrel53" parent="." instance=ExtResource( 11 )]
+position = Vector2( -149, 7 )
+
+[node name="ExplosiveBarrel54" parent="." instance=ExtResource( 11 )]
+position = Vector2( -180, 43 )
+
+[node name="ExplosiveBarrel55" parent="." instance=ExtResource( 11 )]
+position = Vector2( -147, 67 )
+
+[node name="ExplosiveBarrel56" parent="." instance=ExtResource( 11 )]
+position = Vector2( -122, 33 )

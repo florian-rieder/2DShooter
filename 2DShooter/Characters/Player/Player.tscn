@@ -46,5 +46,13 @@ self_modulate = Color( 1, 0, 0.866667, 1 )
 scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
+[node name="DashCooldown" type="Timer" parent="." index="6"]
+
+[node name="DashTween" type="Tween" parent="." index="7"]
+
+[node name="DashOutTween" type="Tween" parent="." index="8"]
+
 [connection signal="shot_fired" from="Top/Weapon" to="." method="_on_Weapon_shot_fired"]
 [connection signal="shot_fired" from="Top/Weapon" to="Camera2D" method="_on_Weapon_shot_fired"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_DashCooldown_timeout"]
+[connection signal="tween_completed" from="DashTween" to="." method="_on_DashInTween_tween_completed"]

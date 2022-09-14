@@ -27,7 +27,7 @@ func take_hit(damage):
 
     var root = get_tree().get_root()
     for _i in range(8):
-        var blood_instance : Area2D = blood.instance()
+        var blood_instance = blood.instance()
         blood_instance.global_position = global_position
         root.call_deferred("add_child", blood_instance)
 

@@ -8,9 +8,9 @@ export(NodePath) onready var entity_layer = get_node(entity_layer)
 
 func spawn_random(entity):
     # get random position within bounds
-    var x = round(rand_range(position.x, position.x+rect.end.x))
-    var y = round(rand_range(position.y, position.y+rect.end.y))
+    var x = round(rand_range(rect.position.x, rect.end.x))
+    var y = round(rand_range(rect.position.y, rect.end.y))
     # spawn the given entity
     var instance = entity.instance()
-    instance.global_position = global_position + Vector2(x,y)
+    instance.position = position + Vector2(x,y)
     entity_layer.add_child(instance)

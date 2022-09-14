@@ -21,6 +21,7 @@ func _ready():
             body.call('take_hit', round(effective_damage))
     
     $AnimatedSprite.playing = true
+    Surface.draw_explosion_impact(position)
 
 
 func _on_AnimatedSprite_animation_finished():

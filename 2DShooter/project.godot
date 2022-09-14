@@ -48,11 +48,6 @@ _global_script_classes=[ {
 "class": "WeaponResource",
 "language": "GDScript",
 "path": "res://Weapon/Data/WeaponResource.gd"
-}, {
-"base": "Sprite",
-"class": "paint",
-"language": "GDScript",
-"path": "res://Blood/Surface.gd"
 } ]
 _global_script_class_icons={
 "BaseCharacter": "",
@@ -62,8 +57,7 @@ _global_script_class_icons={
 "SpawnPoint": "",
 "State": "",
 "StateMachine": "",
-"WeaponResource": "",
-"paint": ""
+"WeaponResource": ""
 }
 
 [application]
@@ -91,6 +85,10 @@ window/size/test_width=1280
 window/size/test_height=720
 window/stretch/aspect="keep"
 window/stretch/shrink=4.0
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/smoothing/plugin.cfg" )
 
 [importer_defaults]
 

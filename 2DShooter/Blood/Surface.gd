@@ -2,12 +2,15 @@
 # https://github.com/trolog/GodotPaintBloodToTexture
 extends Sprite
 
-class_name paint
 
 var surface_image : Image = Image.new()
 var surface_texture : ImageTexture = ImageTexture.new()
 var blood_image : Image = Image.new()
 var blood_texture : ImageTexture = ImageTexture.new()
+var explosion_impact_image : Image = Image.new()
+var explosion_impact_texture : ImageTexture = ImageTexture.new()
+var surface_changed = false
+
 
 func _ready() -> void:
     #create our surface image and display it
@@ -20,6 +23,11 @@ func _ready() -> void:
     blood_image = blood_stream_texture.get_data()
     blood_image.convert(Image.FORMAT_RGBAH)
     blood_texture.create_from_image(blood_image, 1)
+    
+    var explosion_stream_texture = load("res://Blood/ExplosionImpact.png")
+    explosion_impact_image = explosion_stream_texture.get_data()
+    explosion_impact_image.convert(Image.FORMAT_RGBAH)
+    explosion_impact_texture.create_from_image(explosion_impact_image, 1)
 
     texture = surface_texture
 
@@ -29,6 +37,14 @@ func draw_blood(draw_pos : Vector2) -> void:
     #stamp the blood on to surface
     surface_image.blit_rect(blood_image,Rect2(Vector2(0,0),Vector2(3,3)),draw_pos)
     surface_image.unlock() # unlock the surface again
+    surface_changed = true
+
+
+func draw_explosion_impact(draw_pos : Vector2) -> void:
+    surface_image.lock()
+    surface_image.blend_rect(explosion_impact_image,Rect2(Vector2(0,0),Vector2(16,16)),draw_pos - Vector2(8,8))
+    surface_image.unlock()
+    surface_changed = true
 
 
 func reset() -> void:
@@ -36,13 +52,8 @@ func reset() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+    if not surface_changed:
+        return
     #Update this surface here, instead of every blood call(better optimised
     surface_texture.create_from_image(surface_image, 1)
-    
-    #Reset the texture so it's empty again
-#    if(Input.is_action_just_pressed("ui_accept")):
-#        surface_image.fill(Color(0,0,0,0))
-#
-#    #Allow drawing with the right mouse button
-#    if(Input.is_action_pressed("fire")):
-#        draw_blood(get_global_mouse_position())
+    surface_changed = false

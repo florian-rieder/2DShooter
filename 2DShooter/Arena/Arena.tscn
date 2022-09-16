@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Arena/Arena.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 800 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 800 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 800, 16 )
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 1 )
@@ -12,5 +21,33 @@ script = ExtResource( 1 )
 
 [node name="Player" parent="Entities" instance=ExtResource( 2 )]
 position = Vector2( 800, 800 )
+
+[node name="Scenery" type="Node2D" parent="."]
+
+[node name="Borders" type="Node2D" parent="."]
+
+[node name="EastBorder" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/EastBorder"]
+position = Vector2( -16, 800 )
+shape = SubResource( 1 )
+
+[node name="WestBorder" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/WestBorder"]
+position = Vector2( 1616, 800 )
+shape = SubResource( 2 )
+
+[node name="NorthBorder" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/NorthBorder"]
+position = Vector2( 800, -16 )
+shape = SubResource( 3 )
+
+[node name="SouthBorder" type="StaticBody2D" parent="Borders"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Borders/SouthBorder"]
+position = Vector2( 800, 1616 )
+shape = SubResource( 3 )
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]

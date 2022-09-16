@@ -9,7 +9,7 @@ onready var right_ray = $RightRay
 
 var arena = null
 
-var target = null
+onready var target = get_tree().get_nodes_in_group('Player')[0]
 var direction = Vector2.ZERO
 
 var asleep := false
@@ -29,28 +29,13 @@ func get_input(delta):
     if asleep:
         return
 
-    if target:
-        state_machine.transition_to('Chase')
-    else:
-        state_machine.transition_to('Wander')
+    state_machine.transition_to('Chase')
 
 
 func die():
     if arena:
         arena.enemy_died(self)
     queue_free()
-
-
-func _on_DetectionArea_body_entered(body):
-    # follow the target
-    if "Player" in body.get_groups():
-        target = body
-
-
-func _on_DetectionArea_body_exited(body):
-    # stop following the target
-    if body == target:
-        target = null
 
 
 func _on_VisibilityEnabler2D_screen_exited():

@@ -7,6 +7,7 @@ export var speed : int = 100
 export (PackedScene) var blood
 
 var velocity : Vector2 = Vector2.ZERO
+var alive = true
 
 onready var top = $Top
 
@@ -22,6 +23,10 @@ func die():
 
 
 func take_hit(damage):
+    if not alive:
+        # prevents the die() function being fired multiple times in some cases
+        return
+
     health -= damage
     $AnimationPlayer.play("FlashWhite")
 
@@ -32,6 +37,7 @@ func take_hit(damage):
         root.call_deferred("add_child", blood_instance)
 
     if health <= 0:
+        alive = false
         die()
 
 

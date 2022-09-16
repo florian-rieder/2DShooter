@@ -4,6 +4,9 @@ extends State
 
 # Virtual function. Corresponds to the `_physics_process()` callback.
 func physics_update(_delta: float) -> void:
+    if owner.target:
+        state_machine.transition_to('Chase')
+    
     owner.velocity = Vector2.ZERO
     var x = rand_range(-1, 1)
     var y = rand_range(-1, 1)

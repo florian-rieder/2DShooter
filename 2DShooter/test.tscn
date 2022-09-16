@@ -47,6 +47,7 @@ powerup = ExtResource( 8 )
 position = Vector2( 364, -50 )
 rect = Rect2( 0, 0, 100, 100 )
 entity_layer = NodePath("..")
+active = false
 
 [node name="BaseEnemy" parent="Entities/SpawnPoint" instance=ExtResource( 12 )]
 position = Vector2( 45, 58 )
@@ -55,6 +56,7 @@ position = Vector2( 45, 58 )
 position = Vector2( -440, -458 )
 rect = Rect2( 0, 0, 150, 150 )
 entity_layer = NodePath("..")
+active = false
 
 [node name="Wall" type="StaticBody2D" parent="Entities"]
 position = Vector2( 320, 0 )

@@ -1,5 +1,7 @@
 extends Area2D
 
+class_name Powerup
+
 export (Resource) var powerup
 
 onready var sprite = $Sprite

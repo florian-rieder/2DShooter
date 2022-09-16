@@ -32,6 +32,8 @@ material = SubResource( 1 )
 current = true
 smoothing_enabled = true
 smoothing_speed = 4.0
+editor_draw_limits = true
+editor_draw_drag_margin = true
 script = ExtResource( 2 )
 target = NodePath("../Lookahead")
 
@@ -40,7 +42,6 @@ script = ExtResource( 5 )
 distance = Vector2( 100, 100 )
 
 [node name="DebugSprite" type="Sprite" parent="Lookahead" index="0"]
-visible = false
 modulate = Color( 1, 0, 0.913725, 1 )
 self_modulate = Color( 1, 0, 0.866667, 1 )
 scale = Vector2( 0.2, 0.2 )
@@ -49,8 +50,6 @@ texture = ExtResource( 3 )
 [node name="DashCooldown" type="Timer" parent="." index="6"]
 
 [node name="DashTween" type="Tween" parent="." index="7"]
-
-[node name="DashOutTween" type="Tween" parent="." index="8"]
 
 [connection signal="shot_fired" from="Top/Weapon" to="." method="_on_Weapon_shot_fired"]
 [connection signal="shot_fired" from="Top/Weapon" to="Camera2D" method="_on_Weapon_shot_fired"]

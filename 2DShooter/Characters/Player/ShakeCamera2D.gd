@@ -31,7 +31,12 @@ func _process(delta) -> void:
         # the lookahead is offset in the opposite direction of the camera
         # offset, making it immobile relative to the world.
         # position = lerp(position, target.position, speed * delta)
-        global_position = lerp(global_position, target.global_position - offset, speed * delta)
+        global_position = target.global_position - offset
+
+        # causes a big weird bug on my Windows laptop.
+        # try again in Godot 4 ?
+        #global_position = lerp(global_position, target.global_position - offset, speed * delta)
+
     if trauma:
         trauma = max(trauma - decay * delta, 0)
         shake()

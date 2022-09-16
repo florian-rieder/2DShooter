@@ -17,7 +17,7 @@
 extents = Vector2( 15.5, 95.5 )
 
 [node name="Game" type="Node2D"]
-position = Vector2( 667, 569 )
+position = Vector2( 745, 560 )
 
 [node name="Entities" type="YSort" parent="."]
 
@@ -194,19 +194,19 @@ position = Vector2( 1084, 394 )
 position = Vector2( 1109, 360 )
 
 [node name="ExplosiveBarrel42" parent="." instance=ExtResource( 11 )]
-position = Vector2( -267, -585 )
+position = Vector2( -253, -569 )
 
 [node name="ExplosiveBarrel43" parent="." instance=ExtResource( 11 )]
-position = Vector2( -236, -568 )
+position = Vector2( -236, -560 )
 
 [node name="ExplosiveBarrel44" parent="." instance=ExtResource( 11 )]
-position = Vector2( -267, -532 )
+position = Vector2( -254, -551 )
 
 [node name="ExplosiveBarrel45" parent="." instance=ExtResource( 11 )]
-position = Vector2( -234, -508 )
+position = Vector2( -240, -541 )
 
 [node name="ExplosiveBarrel46" parent="." instance=ExtResource( 11 )]
-position = Vector2( -209, -542 )
+position = Vector2( -223, -547 )
 
 [node name="ExplosiveBarrel47" parent="." instance=ExtResource( 11 )]
 position = Vector2( -815, -374 )

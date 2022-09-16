@@ -5,11 +5,11 @@ onready var lookahead = $Lookahead
 onready var weapon = $Top/Weapon
 onready var camera = $Camera2D
 
-export var max_dash_speed = 400
-var dash_speed = 400
+export var dash_speed = 400
 export var dash_duration = 0.3
 var can_dash = true
 var dashing = false
+
 
 func get_input(delta):
     velocity = Vector2.ZERO
@@ -47,9 +47,9 @@ func get_input(delta):
 func dash():
     $DashTween.interpolate_property(self, 'dash_speed', speed, dash_speed,
         dash_duration, Tween.TRANS_BACK, Tween.EASE_OUT)
-    $DashTween.start()
     can_dash = false
     dashing = true
+    $DashTween.start()
 
 
 func powerup(powerup):
@@ -75,7 +75,4 @@ func _on_DashCooldown_timeout():
 
 func _on_DashInTween_tween_completed(object, key):
     dashing = false
-    print('dash finished')
-    print(speed)
-    print(dash_speed)
     $DashCooldown.start()

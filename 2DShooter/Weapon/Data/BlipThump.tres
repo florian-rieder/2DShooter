@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=4 format=2]
 
 [ext_resource path="res://Weapon/Data/WeaponResource.gd" type="Script" id=1]
-[ext_resource path="res://Projectile/Data/BigProjectile.tres" type="Resource" id=2]
+[ext_resource path="res://Projectile/Data/TestProjectile.tres" type="Resource" id=2]
 [ext_resource path="res://audio/BlipThump.wav" type="AudioStream" id=3]
 
 [resource]

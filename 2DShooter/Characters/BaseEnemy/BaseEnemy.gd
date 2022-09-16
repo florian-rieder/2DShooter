@@ -10,7 +10,7 @@ onready var right_ray = $RightRay
 var target = null
 var direction = Vector2.ZERO
 
-var asleep := true
+var asleep := false
 var on_screen := false
 var sleep_timeout := 5 # seconds
 var sleep_timer := 0.0

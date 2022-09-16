@@ -65,8 +65,8 @@ func die():
 
 func _on_Weapon_shot_fired(weapon_data):
     # get the direction opposite to the firing direction
-    var direction = (global_position - get_global_mouse_position()).normalized()
-    move_and_slide(direction * weapon_data.kickback)
+    kick_direction = (global_position - get_global_mouse_position()).normalized()
+    kick_speed = weapon_data.kickback
 
 
 func _on_DashCooldown_timeout():

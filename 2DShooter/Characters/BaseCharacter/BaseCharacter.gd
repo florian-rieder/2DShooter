@@ -7,6 +7,9 @@ export var speed : int = 100
 export (PackedScene) var blood
 
 var velocity : Vector2 = Vector2.ZERO
+var kick_direction : Vector2 = Vector2.ZERO
+var kick_speed = 0
+export var kick_decay = 10
 var alive = true
 
 onready var top = $Top
@@ -41,6 +44,9 @@ func take_hit(damage, hit_direction):
         blood_instance.speed = blood_speed
         root.call_deferred("add_child", blood_instance)
 
+    kick_direction = hit_direction
+    kick_speed = damage * 10
+
     # death condition
     if health <= 0:
         alive = false
@@ -49,6 +55,9 @@ func take_hit(damage, hit_direction):
 
 func _physics_process(delta):
     get_input(delta)
-    velocity = move_and_slide(velocity)
+    velocity = move_and_slide(velocity + kick_direction * kick_speed)
     if velocity.length() > 10:
         $DustParticles.emitting = true
+    kick_speed -= kick_decay
+    if kick_speed < 0:
+        kick_speed = 0

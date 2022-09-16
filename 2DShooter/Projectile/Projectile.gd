@@ -16,8 +16,9 @@ func _physics_process(delta):
 
 
 func _on_Projectile_body_entered(body):
+    var hit_direction = Vector2.RIGHT.rotated(rotation)
     if body.has_method('take_hit'):
-        body.call('take_hit', projectile.damage)
+        body.call('take_hit', projectile.damage, hit_direction)
     play_hit_sound()
     spawn_impact()
     queue_free()

@@ -14,7 +14,7 @@ var direction = Vector2.ZERO
 
 var asleep := false
 var on_screen := false
-var sleep_timeout := 5 # seconds
+var sleep_timeout := 10 # seconds
 var sleep_timer := 0.0
 
 

@@ -14,7 +14,7 @@ var surface_changed = false
 
 func _ready() -> void:
     #create our surface image and display it
-    surface_image.create(1600,1500,false,Image.FORMAT_RGBAH)
+    surface_image.create(1600,1600,false,Image.FORMAT_RGBAH)
     surface_image.fill(Color(0,0,0,0))
     surface_texture.create_from_image(surface_image, 1)
     

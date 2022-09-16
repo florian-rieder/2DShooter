@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://ExplosiveBarrel/ExplosiveBarrel.tscn" type="PackedScene" id=1]
+
+[node name="ExplosiveBarrelCluster5" type="Node2D"]
+
+[node name="ExplosiveBarrel36" parent="." instance=ExtResource( 1 )]
+position = Vector2( -17, 4 )
+
+[node name="ExplosiveBarrel37" parent="." instance=ExtResource( 1 )]
+position = Vector2( -5, -9 )
+
+[node name="ExplosiveBarrel38" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1, 7 )
+
+[node name="ExplosiveBarrel39" parent="." instance=ExtResource( 1 )]
+position = Vector2( 11, -6 )
+
+[node name="ExplosiveBarrel40" parent="." instance=ExtResource( 1 )]
+position = Vector2( 15, 10 )

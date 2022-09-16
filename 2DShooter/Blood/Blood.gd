@@ -5,8 +5,7 @@ extends Node2D
 
 var is_colliding = false
 
-var vspeed = rand_range(-1,1)
-var hspeed = rand_range(-1,1)
+var speed = Vector2.ZERO
 
 var blood_acc = rand_range(0.05,0.1)
 var do_wobble = false
@@ -22,22 +21,21 @@ func _physics_process(_delta: float) -> void:
     if(count > max_count) : queue_free()
 
     #We make sure blood drop faster than 3, slowly reduce speed
-    if (vspeed > 3) : vspeed = 3
-    vspeed = lerp(vspeed,0.1,blood_acc)
+    if (speed.y > 3) : speed.y = 3
+    speed.y = lerp(speed.y,0.1,blood_acc)
 
     #If we're moving downwards in a line, add wobble
-    if(hspeed > 0.1 or hspeed < -0.1):
-        hspeed = lerp(hspeed,0,0.1)
+    if(speed.x > 0.1 or speed.x < -0.1):
+        speed.x = lerp(speed.x,0,0.1)
     else:
         do_wobble = true
     visible = false
 
     #we add random wobble when moving downwards to avoid str8 lines
     if(do_wobble):
-        hspeed += rand_range(-0.01,0.01)
-        hspeed = clamp(hspeed,-0.1,0.1)
+        speed.x += rand_range(-0.01,0.01)
+        speed.x = clamp(speed.x,-0.1,0.1)
 
-    #update our position based on the vspeed and hspeed
-    position.y += vspeed
-    position.x += hspeed
-
+    #update our position based on the speed.y and speed.x
+    position.y += speed.y
+    position.x += speed.x

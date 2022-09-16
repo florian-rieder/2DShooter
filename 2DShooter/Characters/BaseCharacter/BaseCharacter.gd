@@ -22,20 +22,26 @@ func die():
     pass
 
 
-func take_hit(damage):
+func take_hit(damage, hit_direction):
     if not alive:
         # prevents the die() function being fired multiple times in some cases
         return
 
+    # Take damage
     health -= damage
+    # Flash white
     $AnimationPlayer.play("FlashWhite")
 
     var root = get_tree().get_root()
+    # bleed
     for _i in range(8):
         var blood_instance = blood.instance()
         blood_instance.global_position = global_position
+        var blood_speed = Vector2(randf() * 3 * hit_direction.x, randf() * 3 * hit_direction.y)
+        blood_instance.speed = blood_speed
         root.call_deferred("add_child", blood_instance)
 
+    # death condition
     if health <= 0:
         alive = false
         die()

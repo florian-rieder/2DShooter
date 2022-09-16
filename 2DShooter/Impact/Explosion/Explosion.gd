@@ -17,10 +17,11 @@ func _ready():
     for body in bodies:
         if body.has_method('take_hit'):
             var distance = body.global_position.distance_to(global_position)/16
+            var hit_direction = global_position.direction_to(body.global_position)
             var effective_damage = damage
             if distance != 0:
                 effective_damage = damage/(distance*distance)
-            body.call('take_hit', round(effective_damage))
+            body.call('take_hit', round(effective_damage), hit_direction)
     
     $AnimatedSprite.playing = true
     Surface.draw_explosion_impact(position)

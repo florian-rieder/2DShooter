@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Arena/Arena.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/SpawnPoint/SpawnPoint.gd" type="Script" id=2]
+[ext_resource path="res://Characters/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=3]
+
+[node name="TestArena" instance=ExtResource( 1 )]
+enemy_types = {
+1.0: ExtResource( 3 )
+}
+
+[node name="SpawnPoint" type="VisibilityNotifier2D" parent="Entities" index="0"]
+position = Vector2( 400, 400 )
+script = ExtResource( 2 )
+entity_layer = NodePath("..")
+
+[node name="SpawnPoint2" type="VisibilityNotifier2D" parent="Entities" index="1"]
+position = Vector2( 1200, 400 )
+script = ExtResource( 2 )
+entity_layer = NodePath("..")
+active = false
+
+[node name="SpawnPoint3" type="VisibilityNotifier2D" parent="Entities" index="2"]
+position = Vector2( 1200, 1200 )
+script = ExtResource( 2 )
+entity_layer = NodePath("..")
+active = false
+
+[node name="SpawnPoint4" type="VisibilityNotifier2D" parent="Entities" index="3"]
+position = Vector2( 400, 1200 )
+script = ExtResource( 2 )
+entity_layer = NodePath("..")
+active = false

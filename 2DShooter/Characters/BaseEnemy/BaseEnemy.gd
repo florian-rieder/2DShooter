@@ -7,6 +7,8 @@ onready var state_machine = $StateMachine
 onready var left_ray = $LeftRay
 onready var right_ray = $RightRay
 
+var arena = null
+
 var target = null
 var direction = Vector2.ZERO
 
@@ -34,6 +36,8 @@ func get_input(delta):
 
 
 func die():
+    if arena:
+        arena.enemy_died(self)
     queue_free()
 
 

@@ -41,6 +41,3 @@ func _physics_process(_delta: float) -> void:
     position.y += vspeed
     position.x += hspeed
 
-    #delete this object if it left the screen downwards
-    if(position.y > 1000):
-        queue_free()

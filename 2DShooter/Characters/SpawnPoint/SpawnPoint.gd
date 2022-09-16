@@ -4,7 +4,10 @@ class_name SpawnPoint
 # the component is stored as a NodePath in the editor.
 # onready, we can cache the component by getting the node at the NodePath
 export(NodePath) onready var entity_layer = get_node(entity_layer)
+export var active = true
 
+func _ready():
+    add_to_group("SpawnPoint")
 
 func spawn_random(entity):
     # get random position within bounds
@@ -14,3 +17,4 @@ func spawn_random(entity):
     var instance = entity.instance()
     instance.position = position + Vector2(x,y)
     entity_layer.add_child(instance)
+    return instance

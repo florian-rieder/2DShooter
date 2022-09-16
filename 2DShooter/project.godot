@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "Arena",
+"language": "GDScript",
+"path": "res://Arena/Arena.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "BaseCharacter",
 "language": "GDScript",
@@ -50,6 +55,7 @@ _global_script_classes=[ {
 "path": "res://Weapon/Data/WeaponResource.gd"
 } ]
 _global_script_class_icons={
+"Arena": "",
 "BaseCharacter": "",
 "BaseEnemy": "",
 "ProjectileResource": "",
@@ -63,13 +69,12 @@ _global_script_class_icons={
 [application]
 
 config/name="2D Shooter"
-run/main_scene="res://test.tscn"
+run/main_scene="res://Arena/TestArena.tscn"
 boot_splash/bg_color=Color( 0.258824, 0.258824, 0.258824, 1 )
 config/icon="res://icon.png"
 
 [autoload]
 
-Director="*res://Director/Director.gd"
 Surface="*res://Blood/Surface.tscn"
 
 [debug]

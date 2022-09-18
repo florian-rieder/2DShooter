@@ -34,6 +34,7 @@ animations = [ {
 script = ExtResource( 1 )
 speed = 400
 damage = 15
+piercing = 0
 frames = SubResource( 5 )
 impact = ExtResource( 5 )
 impact_sounds = [ ExtResource( 4 ), ExtResource( 3 ) ]

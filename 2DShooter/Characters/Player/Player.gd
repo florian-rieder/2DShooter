@@ -6,6 +6,7 @@ onready var weapon = $Top/Weapon
 onready var camera = $Camera2D
 
 export var dash_speed = 400
+var current_dash_speed = 0
 export var dash_duration = 0.3
 var can_dash = true
 var dashing = false
@@ -36,7 +37,7 @@ func get_input(delta):
     lookahead.call('direction', velocity, get_local_mouse_position())
     
     if dashing:
-        velocity = velocity.normalized() * dash_speed
+        velocity = velocity.normalized() * current_dash_speed
     else:
         # Make sure diagonal movement isn't faster
         velocity = velocity.normalized() * speed
@@ -45,7 +46,7 @@ func get_input(delta):
 
 
 func dash():
-    $DashTween.interpolate_property(self, 'dash_speed', speed, dash_speed,
+    $DashTween.interpolate_property(self, 'current_dash_speed', speed, dash_speed,
         dash_duration, Tween.TRANS_BACK, Tween.EASE_OUT)
     can_dash = false
     dashing = true

@@ -4,24 +4,29 @@ extends Area2D
 export (Resource) var projectile
 onready var _root = get_tree().get_root()
 
-var moving = true
+var hits = 0
 
 func _ready():
     $Sprite.frames = projectile.frames
 
 func _physics_process(delta):
-    if not moving:
-        return
     position += transform.x * projectile.speed * delta
 
 
 func _on_Projectile_body_entered(body):
-    var hit_direction = Vector2.RIGHT.rotated(rotation)
+    # inflict damage
     if body.has_method('take_hit'):
+        var hit_direction = Vector2.RIGHT.rotated(rotation)
         body.call('take_hit', projectile.damage, hit_direction)
+
+    # feedback
     play_hit_sound()
     spawn_impact()
-    queue_free()
+
+    if hits == projectile.piercing:
+        queue_free()
+    hits += 1
+
 
 func spawn_impact():
     var root = get_tree().get_root()
@@ -37,11 +42,12 @@ func spawn_impact():
 
 
 func play_hit_sound(): # To avoid the sound from clipping, we generate a new audio node each time then we delete it
-    var audio_node = AudioStreamPlayer.new()
+    var audio_node = AudioStreamPlayer2D.new()
     var pick_sound = randi() % projectile.impact_sounds.size() # Pick a random sound
     audio_node.stream = projectile.impact_sounds[pick_sound]
     audio_node.pitch_scale = rand_range(0.95, 1.05)
     audio_node.bus = "SFX"
+    audio_node.global_position = global_position
     _root.add_child(audio_node)
     audio_node.play()
     # destroy the node when the sound is finished playing

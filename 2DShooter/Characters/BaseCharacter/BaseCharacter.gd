@@ -54,10 +54,14 @@ func take_hit(damage, hit_direction):
 
 
 func _physics_process(delta):
+    # movement
     get_input(delta)
     velocity = move_and_slide(velocity + kick_direction * kick_speed)
+    
+    # footstep particles
     if velocity.length() > 10:
         $DustParticles.emitting = true
+    # kickback
     kick_speed -= kick_decay
     if kick_speed < 0:
         kick_speed = 0

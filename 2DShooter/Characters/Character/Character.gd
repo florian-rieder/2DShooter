@@ -1,5 +1,5 @@
 extends KinematicBody2D
-class_name BaseCharacter
+class_name Character
 
 
 export var health : int = 100

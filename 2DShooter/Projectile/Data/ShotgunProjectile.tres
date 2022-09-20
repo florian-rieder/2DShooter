@@ -35,6 +35,7 @@ script = ExtResource( 1 )
 speed = 600
 damage = 20
 piercing = 0
+pierce_speed_loss = 0
 frames = SubResource( 5 )
 impact = ExtResource( 3 )
 impact_sounds = [ ExtResource( 5 ), ExtResource( 4 ) ]

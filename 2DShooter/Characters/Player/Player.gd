@@ -1,4 +1,4 @@
-extends BaseCharacter
+extends Character
 
 
 onready var lookahead = $Lookahead
@@ -12,7 +12,7 @@ var can_dash = true
 var dashing = false
 
 
-func get_input(delta):
+func get_input(_delta):
     velocity = Vector2.ZERO
     if Input.is_action_pressed('right'):
         velocity.x += 1
@@ -74,6 +74,6 @@ func _on_DashCooldown_timeout():
     can_dash = true
 
 
-func _on_DashInTween_tween_completed(object, key):
+func _on_DashInTween_tween_completed(_object, _key):
     dashing = false
     $DashCooldown.start()

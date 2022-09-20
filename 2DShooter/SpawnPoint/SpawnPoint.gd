@@ -6,10 +6,12 @@ class_name SpawnPoint
 export(NodePath) onready var entity_layer = get_node(entity_layer)
 export var active = true
 
+
 func _ready():
     add_to_group("SpawnPoint")
 
-func spawn_random(entity):
+
+func spawn_random(entity : PackedScene):
     # get random position within bounds
     var x = round(rand_range(rect.position.x, rect.end.x))
     var y = round(rand_range(rect.position.y, rect.end.y))

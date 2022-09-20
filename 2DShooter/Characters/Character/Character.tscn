@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Characters/BaseCharacter/BaseCharacter.gd" type="Script" id=1]
+[ext_resource path="res://Characters/Character/Character.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/Player_top_16.png" type="Texture" id=2]
 [ext_resource path="res://modulate_white.gdshader" type="Shader" id=3]
 [ext_resource path="res://Characters/DustParticle.png" type="Texture" id=4]

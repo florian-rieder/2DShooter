@@ -15,12 +15,12 @@ _global_script_classes=[ {
 "path": "res://Arena/Arena.gd"
 }, {
 "base": "KinematicBody2D",
-"class": "BaseCharacter",
+"class": "Character",
 "language": "GDScript",
-"path": "res://Characters/BaseCharacter/BaseCharacter.gd"
+"path": "res://Characters/Character/Character.gd"
 }, {
-"base": "BaseCharacter",
-"class": "BaseEnemy",
+"base": "Character",
+"class": "Enemy",
 "language": "GDScript",
 "path": "res://Characters/BaseEnemy/BaseEnemy.gd"
 }, {
@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "VisibilityNotifier2D",
 "class": "SpawnPoint",
 "language": "GDScript",
-"path": "res://Characters/SpawnPoint/SpawnPoint.gd"
+"path": "res://SpawnPoint/SpawnPoint.gd"
 }, {
 "base": "Node",
 "class": "State",
@@ -61,8 +61,8 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "Arena": "",
-"BaseCharacter": "",
-"BaseEnemy": "",
+"Character": "",
+"Enemy": "",
 "Powerup": "",
 "ProjectileResource": "",
 "ShakeCamera2D": "",
@@ -99,7 +99,7 @@ window/stretch/shrink=4.0
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/smoothing/plugin.cfg" )
+enabled=PoolStringArray(  )
 
 [importer_defaults]
 

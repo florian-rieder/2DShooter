@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Characters/BaseCharacter/BaseCharacter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/ShakeCamera2D.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
 [ext_resource path="res://pixelate.gdshader" type="Shader" id=4]

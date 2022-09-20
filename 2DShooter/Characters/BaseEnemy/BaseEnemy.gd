@@ -1,5 +1,5 @@
-extends BaseCharacter
-class_name BaseEnemy
+extends Character
+class_name Enemy
 
 # State machine AI
 onready var state_machine = $StateMachine
@@ -11,7 +11,7 @@ var arena = null
 
 onready var target = get_tree().get_nodes_in_group('Player')[0]
 var direction = Vector2.ZERO
-
+# sleep
 var asleep := false
 var on_screen := false
 var sleep_timeout := 10 # seconds

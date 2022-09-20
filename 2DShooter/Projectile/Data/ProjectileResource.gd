@@ -6,6 +6,7 @@ export var speed : int = 500
 export var damage : int = 0
 export var piercing : int = 0 # how many objects the projectile can go through
 export var pierce_speed_loss : int = 0
+export var avoid_enemies = false
 
 export (SpriteFrames) var frames
 

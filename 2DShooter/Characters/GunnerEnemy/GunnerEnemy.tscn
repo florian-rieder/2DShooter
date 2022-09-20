@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Characters/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Characters/GunnerEnemy/Engage.gd" type="Script" id=2]
+[ext_resource path="res://Characters/GunnerEnemy/GunnerEnemy.gd" type="Script" id=3]
+[ext_resource path="res://modulate_white.gdshader" type="Shader" id=4]
+[ext_resource path="res://Weapon/Weapon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Weapon/Data/EnemyWeapon.tres" type="Resource" id=6]
+
+[sub_resource type="ShaderMaterial" id=1]
+resource_local_to_scene = true
+shader = ExtResource( 4 )
+shader_param/active = false
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 200.0
+
+[node name="GunnerEnemy" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+health = 100
+
+[node name="Weapon" parent="Top" index="0" instance=ExtResource( 5 )]
+weapon = ExtResource( 6 )
+
+[node name="TopSprite" parent="Top" index="1"]
+material = SubResource( 1 )
+
+[node name="Engage" type="Node" parent="StateMachine" index="1"]
+script = ExtResource( 2 )
+
+[node name="FireRange" type="Area2D" parent="." index="8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireRange" index="0"]
+shape = SubResource( 2 )
+
+[connection signal="shot_fired" from="Top/Weapon" to="." method="_on_Weapon_shot_fired"]
+[connection signal="body_entered" from="FireRange" to="." method="_on_FireRange_body_entered"]
+[connection signal="body_exited" from="FireRange" to="." method="_on_FireRange_body_exited"]

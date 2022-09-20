@@ -11,7 +11,7 @@ static func weighted_random_choice(dict : Dictionary):
     var rand_val = randf()
     var total = 0
     for k in dict.keys():
-        total += k
+        total += dict[k]
         if rand_val <= total:
-            return dict[k]
+            return k
     push_error('unreachable')

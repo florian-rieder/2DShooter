@@ -1,12 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Characters/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/BaseEnemy/BaseEnemy.gd" type="Script" id=2]
 [ext_resource path="res://modulate_white.gdshader" type="Shader" id=3]
 [ext_resource path="res://StateMachine/StateMachine.gd" type="Script" id=4]
 [ext_resource path="res://Characters/BaseEnemy/Chase.gd" type="Script" id=5]
-[ext_resource path="res://Characters/BaseEnemy/Wander.gd" type="Script" id=6]
-[ext_resource path="res://Characters/BaseEnemy/Asleep.gd" type="Script" id=7]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -24,16 +22,10 @@ material = SubResource( 2 )
 
 [node name="StateMachine" type="Node" parent="." index="4"]
 script = ExtResource( 4 )
-initial_state = NodePath("Wander")
+initial_state = NodePath("Chase")
 
-[node name="Wander" type="Node" parent="StateMachine" index="0"]
-script = ExtResource( 6 )
-
-[node name="Chase" type="Node" parent="StateMachine" index="1"]
+[node name="Chase" type="Node" parent="StateMachine" index="0"]
 script = ExtResource( 5 )
-
-[node name="Asleep" type="Node" parent="StateMachine" index="2"]
-script = ExtResource( 7 )
 
 [node name="LeftRay" type="RayCast2D" parent="." index="6"]
 enabled = true

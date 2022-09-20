@@ -18,6 +18,9 @@ func _physics_process(delta):
 
 
 func _on_Projectile_body_entered(body):
+    
+    if projectile.avoid_enemies and body.is_in_group('Enemy'):
+        return
     # inflict damage
     if body.has_method('take_hit'):
         var hit_direction = Vector2.RIGHT.rotated(rotation)

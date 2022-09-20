@@ -1,0 +1,17 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Weapon/Data/WeaponResource.gd" type="Script" id=1]
+[ext_resource path="res://Projectile/Data/EnemyProjectile.tres" type="Resource" id=2]
+[ext_resource path="res://audio/shoot_1.wav" type="AudioStream" id=3]
+
+[resource]
+script = ExtResource( 1 )
+name = ""
+projectile_angles = [ 0.0 ]
+rate_of_fire = 50
+inaccuracy = 0.25
+kickback = 25
+shake_trauma = 0.0
+max_trauma = 0.0
+projectile = ExtResource( 2 )
+fire_sounds = [ ExtResource( 3 ) ]

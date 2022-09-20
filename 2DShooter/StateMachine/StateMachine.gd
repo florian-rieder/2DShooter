@@ -22,8 +22,8 @@ func _ready() -> void:
 
 
 # The state machine subscribes to node callbacks and delegates them to the state objects.
-func _unhandled_input(event: InputEvent) -> void:
-    state.handle_input(event)
+#func _unhandled_input(event: InputEvent) -> void:
+#    state.handle_input(event)
 
 
 func _process(delta: float) -> void:

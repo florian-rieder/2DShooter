@@ -10,8 +10,8 @@ var state_machine = null
 
 
 # Virtual function. Receives events from the `_unhandled_input()` callback.
-func handle_input(_event: InputEvent) -> void:
-    pass
+#func handle_input(_event: InputEvent) -> void:
+#    pass
 
 
 # Virtual function. Corresponds to the `_process()` callback.

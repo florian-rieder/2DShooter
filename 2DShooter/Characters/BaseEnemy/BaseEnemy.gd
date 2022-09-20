@@ -11,25 +11,11 @@ var arena = null
 
 onready var target = get_tree().get_nodes_in_group('Player')[0]
 var direction = Vector2.ZERO
-# sleep
-var asleep := false
 var on_screen := false
-var sleep_timeout := 10 # seconds
-var sleep_timer := 0.0
 
 
 func get_input(delta):
-    # sleep after a few seconds off-screen
-    if not on_screen and not asleep:
-        sleep_timer += delta
-        if sleep_timer >= sleep_timeout:
-            asleep = true
-            state_machine.transition_to('Asleep')
-
-    if asleep:
-        return
-
-    state_machine.transition_to('Chase')
+    top.look_at(target.global_position)
 
 
 func die():
@@ -44,5 +30,3 @@ func _on_VisibilityEnabler2D_screen_exited():
 
 func _on_VisibilityEnabler2D_screen_entered():
     on_screen = true
-    asleep = false
-    sleep_timer = 0.0

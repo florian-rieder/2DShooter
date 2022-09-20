@@ -4,13 +4,16 @@ class_name Character
 
 export var health : int = 100
 export var speed : int = 100
+var alive = true
+
 export (PackedScene) var blood
 
+# movement
 var velocity : Vector2 = Vector2.ZERO
+
+export var kick_decay = 10
 var kick_direction : Vector2 = Vector2.ZERO
 var kick_speed = 0
-export var kick_decay = 10
-var alive = true
 
 onready var top = $Top
 
@@ -37,7 +40,7 @@ func take_hit(damage, hit_direction):
 
     var root = get_tree().get_root()
     # bleed
-    for _i in range(8):
+    for _i in range(4):
         var blood_instance = blood.instance()
         blood_instance.global_position = global_position
         var blood_speed = Vector2(randf() * 3 * hit_direction.x, randf() * 3 * hit_direction.y)
@@ -56,8 +59,8 @@ func take_hit(damage, hit_direction):
 func _physics_process(delta):
     # movement
     get_input(delta)
-    velocity = move_and_slide(velocity + kick_direction * kick_speed)
-    
+    move_and_slide(velocity + kick_direction * kick_speed)
+
     # footstep particles
     if velocity.length() > 10:
         $DustParticles.emitting = true

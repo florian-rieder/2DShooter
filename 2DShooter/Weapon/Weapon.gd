@@ -1,4 +1,5 @@
 extends Node2D
+class_name Weapon
 
 signal shot_fired
 
@@ -30,15 +31,13 @@ func fire():
     emit_signal('shot_fired', weapon)
     play_fire_sound()
 
+    _time_since_last_shot = 0
+
 
 func can_fire():
     # check fire rate
     # check if enough time passed since last shot
-    if _time_since_last_shot < _seconds_per_shot:
-        return false
-    # if enough time has passed, reset counter
-    _time_since_last_shot = 0
-    return true
+    return _time_since_last_shot >= _seconds_per_shot
 
 
 func spawn_projectile(deviation = 0.0):
@@ -55,12 +54,12 @@ func spawn_projectile(deviation = 0.0):
 func play_fire_sound():
     # To avoid the sound from clipping, we generate a new
     # audio node each time then we delete it
-    var audio_node = AudioStreamPlayer.new()
+    var audio_node = AudioStreamPlayer2D.new()
     var pick_sound = randi() % weapon.fire_sounds.size() # Pick a random sound
     audio_node.stream = weapon.fire_sounds[pick_sound]
     audio_node.pitch_scale = rand_range(0.95, 1.05)
     audio_node.bus = "SFX"
-    _root.add_child(audio_node)
+    add_child(audio_node)
     audio_node.play()
     audio_node.connect("finished", audio_node, "queue_free")
 

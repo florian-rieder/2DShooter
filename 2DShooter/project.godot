@@ -59,6 +59,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://StateMachine/StateMachine.gd"
 }, {
+"base": "Reference",
+"class": "Util",
+"language": "GDScript",
+"path": "res://Utility.gd"
+}, {
 "base": "Node2D",
 "class": "Weapon",
 "language": "GDScript",
@@ -80,6 +85,7 @@ _global_script_class_icons={
 "SpawnPoint": "",
 "State": "",
 "StateMachine": "",
+"Util": "",
 "Weapon": "",
 "WeaponResource": ""
 }

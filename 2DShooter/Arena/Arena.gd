@@ -6,7 +6,7 @@ const Util = preload("res://Utility.gd")
 
 # enemies
 export (Dictionary) var enemy_types = Dictionary()
-export var max_enemies = 100
+export var max_enemies = 75
 export var kill_goal = 200
 var kill_count = 0
 var enemies = Array()

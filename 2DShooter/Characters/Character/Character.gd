@@ -49,6 +49,8 @@ func take_hit(damage, hit_direction):
 
     kick_direction = hit_direction
     kick_speed = damage * 10
+    
+    custom_take_hit(damage, hit_direction)
 
     # death condition
     if health <= 0:
@@ -68,3 +70,6 @@ func _physics_process(delta):
     kick_speed -= kick_decay
     if kick_speed < 0:
         kick_speed = 0
+
+func custom_take_hit(_damage, _hit_direction) -> void:
+    pass

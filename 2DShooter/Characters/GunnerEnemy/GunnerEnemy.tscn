@@ -13,7 +13,7 @@ shader = ExtResource( 4 )
 shader_param/active = false
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 200.0
+radius = 142.004
 
 [node name="GunnerEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 3 )

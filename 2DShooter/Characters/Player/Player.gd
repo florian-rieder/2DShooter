@@ -57,6 +57,9 @@ func powerup(powerup):
     if powerup is WeaponResource:
         weapon.set_weapon(powerup)
 
+func custom_take_hit(damage, hit_direction) -> void:
+    camera.add_trauma(0.3)
+    kick_speed = kick_speed * 2
 
 func die():
     # current: reload scene

@@ -14,7 +14,7 @@ var direction = Vector2.ZERO
 var on_screen := false
 
 
-func get_input(delta):
+func get_input(_delta):
     top.look_at(target.global_position)
 
 

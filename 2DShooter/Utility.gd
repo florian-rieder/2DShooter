@@ -1,3 +1,4 @@
+class_name Util
 
 # remap a value from one range to another
 static func remap(value: float, istart: float, istop: float, ostart: float, ostop: float):

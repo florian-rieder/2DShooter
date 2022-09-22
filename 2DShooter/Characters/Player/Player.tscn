@@ -1,22 +1,17 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Characters/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/ShakeCamera2D.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://pixelate.gdshader" type="Shader" id=4]
 [ext_resource path="res://Characters/Player/Lookahead.gd" type="Script" id=5]
 [ext_resource path="res://Weapon/Weapon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=7]
 [ext_resource path="res://modulate_white.gdshader" type="Shader" id=8]
 
-[sub_resource type="ShaderMaterial" id=2]
+[sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
 shader = ExtResource( 8 )
 shader_param/active = false
-
-[sub_resource type="ShaderMaterial" id=1]
-shader = ExtResource( 4 )
-shader_param/pixelSize = 4
 
 [node name="Player" groups=["Player"] instance=ExtResource( 1 )]
 script = ExtResource( 7 )
@@ -26,10 +21,9 @@ speed = 200
 [node name="Weapon" parent="Top" index="0" instance=ExtResource( 6 )]
 
 [node name="TopSprite" parent="Top" index="1"]
-material = SubResource( 2 )
+material = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="." index="2"]
-material = SubResource( 1 )
 current = true
 smoothing_enabled = true
 smoothing_speed = 4.0
@@ -53,7 +47,10 @@ texture = ExtResource( 3 )
 
 [node name="DashTween" type="Tween" parent="." index="7"]
 
+[node name="Invulnerability" type="Timer" parent="." index="8"]
+
 [connection signal="shot_fired" from="Top/Weapon" to="." method="_on_Weapon_shot_fired"]
 [connection signal="shot_fired" from="Top/Weapon" to="Camera2D" method="_on_Weapon_shot_fired"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_DashCooldown_timeout"]
 [connection signal="tween_completed" from="DashTween" to="." method="_on_DashInTween_tween_completed"]
+[connection signal="timeout" from="Invulnerability" to="." method="_on_Invulnerability_timeout"]

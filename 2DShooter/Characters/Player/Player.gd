@@ -1,15 +1,17 @@
 extends Character
 
-
+# Component references
 onready var lookahead = $Lookahead
 onready var weapon = $Top/Weapon
 onready var camera = $Camera2D
-
+# dash
+export var dash_duration = 0.3
 export var dash_speed = 400
 var current_dash_speed = 0
-export var dash_duration = 0.3
 var can_dash = true
 var dashing = false
+# invulnerability
+export var invulnerability_duration = 1.0
 
 
 func get_input(_delta):
@@ -48,23 +50,39 @@ func get_input(_delta):
 func dash():
     $DashTween.interpolate_property(self, 'current_dash_speed', speed, dash_speed,
         dash_duration, Tween.TRANS_BACK, Tween.EASE_OUT)
+    $DashTween.start()
     can_dash = false
     dashing = true
-    $DashTween.start()
 
 
 func powerup(powerup):
     if powerup is WeaponResource:
         weapon.set_weapon(powerup)
 
-func custom_take_hit(damage, hit_direction) -> void:
+
+func custom_take_hit(_damage, _hit_direction) -> void:
     camera.add_trauma(0.3)
+    # greater kick speed on the player
     kick_speed = kick_speed * 2
+    # freeze for a short amount of time
+    freeze_frame(0.2, 0.5)
+    # invulnerability
+    $Invulnerability.start(invulnerability_duration)
+    invulnerable = true
+    modulate.a = 0.8
+
 
 func die():
     # current: reload scene
     # TODO: death screen
+    Engine.time_scale = 1.0
     get_tree().reload_current_scene()
+
+
+func freeze_frame(time_scale : float, duration : float):
+    Engine.time_scale = time_scale
+    yield(get_tree().create_timer(duration * time_scale), "timeout")
+    Engine.time_scale = 1.0
 
 
 func _on_Weapon_shot_fired(weapon_data):
@@ -80,3 +98,8 @@ func _on_DashCooldown_timeout():
 func _on_DashInTween_tween_completed(_object, _key):
     dashing = false
     $DashCooldown.start()
+
+
+func _on_Invulnerability_timeout():
+    invulnerable = false
+    modulate.a = 1

@@ -15,6 +15,9 @@ export var kick_decay = 10
 var kick_direction : Vector2 = Vector2.ZERO
 var kick_speed = 0
 
+var invulnerable = false
+
+
 onready var top = $Top
 
 
@@ -29,12 +32,20 @@ func die():
 
 
 func take_hit(damage, hit_direction):
+    # prevents the die() function being fired multiple times in some cases    
     if not alive:
-        # prevents the die() function being fired multiple times in some cases
+        return
+    # obviously, don't take a hit if invulnerable
+    if invulnerable:
+        return
+    # Take damage    
+    health -= damage
+
+    if health <= 0:
+        alive = false
+        die()
         return
 
-    # Take damage
-    health -= damage
     # Flash white
     $AnimationPlayer.play("FlashWhite")
 
@@ -49,13 +60,10 @@ func take_hit(damage, hit_direction):
 
     kick_direction = hit_direction
     kick_speed = damage * 10
-    
-    custom_take_hit(damage, hit_direction)
 
     # death condition
-    if health <= 0:
-        alive = false
-        die()
+    
+    custom_take_hit(damage, hit_direction)
 
 
 func _physics_process(delta):

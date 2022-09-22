@@ -12,8 +12,8 @@
 
 [node name="TestArena" instance=ExtResource( 1 )]
 enemy_types = {
-Resource( "res://Characters/BaseEnemy/BaseEnemy.tscn" ): 0.9,
-Resource( "res://Characters/GunnerEnemy/GunnerEnemy.tscn" ): 0.1
+Resource( "res://Characters/GunnerEnemy/GunnerEnemy.tscn" ): 0.1,
+Resource( "res://Characters/BaseEnemy/BaseEnemy.tscn" ): 0.9
 }
 
 [node name="SpawnPoint" type="VisibilityNotifier2D" parent="Entities" index="0"]

@@ -65,7 +65,7 @@ func custom_take_hit(_damage, _hit_direction) -> void:
     # greater kick speed on the player
     kick_speed = kick_speed * 2
     # freeze for a short amount of time
-    freeze_frame(0.2, 0.5)
+    freeze_frame(0.2, 0.3)
     # invulnerability
     $Invulnerability.start(invulnerability_duration)
     invulnerable = true

@@ -38,6 +38,16 @@ func take_hit(damage, hit_direction):
     # obviously, don't take a hit if invulnerable
     if invulnerable:
         return
+    
+    var root = get_tree().get_root()
+    # bleed
+    for _i in range(4):
+        var blood_instance = blood.instance()
+        blood_instance.global_position = global_position
+        var blood_speed = Vector2(randf() * 3 * hit_direction.x, randf() * 3 * hit_direction.y)
+        blood_instance.speed = blood_speed
+        root.call_deferred("add_child", blood_instance)
+
     # Take damage    
     health -= damage
 
@@ -48,15 +58,6 @@ func take_hit(damage, hit_direction):
 
     # Flash white
     $AnimationPlayer.play("FlashWhite")
-
-    var root = get_tree().get_root()
-    # bleed
-    for _i in range(4):
-        var blood_instance = blood.instance()
-        blood_instance.global_position = global_position
-        var blood_speed = Vector2(randf() * 3 * hit_direction.x, randf() * 3 * hit_direction.y)
-        blood_instance.speed = blood_speed
-        root.call_deferred("add_child", blood_instance)
 
     kick_direction = hit_direction
     kick_speed = damage * 10

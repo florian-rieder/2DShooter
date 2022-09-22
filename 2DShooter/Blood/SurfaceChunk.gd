@@ -1,6 +1,8 @@
+# adapted from:
+# https://github.com/trolog/GodotPaintBloodToTexture
 extends Sprite
 
-export var size = Vector2(1600, 1600)
+export var size : Vector2
 var surface_image : Image = Image.new()
 var surface_texture : ImageTexture = ImageTexture.new()
 var surface_changed = false

@@ -6,3 +6,7 @@
 [node name="Surface" type="Node2D"]
 script = ExtResource( 2 )
 chunk_scene = ExtResource( 1 )
+decal_paths = {
+"Blood": "res://Blood/blood2.png",
+"ExplosionImpact": "res://Blood/ExplosionImpact.png"
+}

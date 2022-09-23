@@ -80,7 +80,7 @@ func enemy_died(enemy):
 
 func _on_WaveTimer_timeout():
     #print(len(enemies))
-    print(kill_count)
+    #print(kill_count)
     if len(enemies) >= max_enemies:
         return
     spawn_wave()

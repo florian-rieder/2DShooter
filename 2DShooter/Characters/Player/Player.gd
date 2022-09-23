@@ -13,6 +13,9 @@ var dashing = false
 # invulnerability
 export var invulnerability_duration = 1.0
 
+export(Array, Resource) var weapons = []
+var current_weapon_index = 0
+
 
 func get_input(_delta):
     velocity = Vector2.ZERO
@@ -32,8 +35,20 @@ func get_input(_delta):
     if Input.is_action_pressed('fire'):
         weapon.fire()
     
-    if can_dash and Input.is_action_pressed("dash"):
+    if can_dash and Input.is_action_pressed('dash'):
         dash()
+
+    # weapon selection
+    if Input.is_action_just_pressed('weapon_up'):
+        current_weapon_index += 1
+        if current_weapon_index > len(weapons) - 1:
+            current_weapon_index = 0
+        weapon.weapon = weapons[current_weapon_index]
+    if Input.is_action_just_pressed('weapon_down'):
+        current_weapon_index -= 1
+        if current_weapon_index < 0:
+            current_weapon_index = len(weapons) - 1
+        weapon.weapon = weapons[current_weapon_index] 
 
     # give the current direction to the camera focus
     lookahead.call('direction', velocity, get_local_mouse_position())

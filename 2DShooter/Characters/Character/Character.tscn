@@ -83,7 +83,7 @@ texture = ExtResource( 2 )
 [node name="Hurtbox" type="CollisionShape2D" parent="."]
 shape = SubResource( 7 )
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="EffectsPlayer" type="AnimationPlayer" parent="."]
 method_call_mode = 1
 anims/FlashWhite = SubResource( 3 )
 anims/RESET = SubResource( 4 )

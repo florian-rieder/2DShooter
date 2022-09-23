@@ -5,15 +5,16 @@ export (Resource) var projectile
 onready var _root = get_tree().get_root()
 
 var hits = 0
-var speed_mod = 0
+var speed_malus = 0
 var min_speed = 400
+
 
 func _ready():
     $Sprite.frames = projectile.frames
 
 
 func _physics_process(delta):
-    var speed = projectile.speed - speed_mod
+    var speed = projectile.speed - speed_malus
     position += transform.x * speed * delta
 
 
@@ -33,9 +34,9 @@ func _on_Projectile_body_entered(body):
     # if the projectile hits its max amount of hits (piercing projectiles)
     if hits == projectile.piercing:
         queue_free()
-    speed_mod += projectile.pierce_speed_loss
+    speed_malus += projectile.pierce_speed_loss
     # destroy the projectile if it travels too slow
-    if projectile.speed - speed_mod < min_speed:
+    if projectile.speed - speed_malus < min_speed:
         queue_free()
 
     hits += 1

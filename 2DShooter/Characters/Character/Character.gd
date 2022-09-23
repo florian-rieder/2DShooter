@@ -4,6 +4,7 @@ class_name Character
 onready var dust_particles = $DustParticles
 
 export var health : int = 100
+export var max_health : int = 100
 export var speed : int = 100
 var alive = true
 

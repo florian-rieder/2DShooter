@@ -4,6 +4,7 @@ extends Character
 onready var lookahead = $Lookahead
 onready var weapon = $Top/Weapon
 onready var camera = $Camera2D
+onready var healthbar = $HealthBar
 # dash
 export var dash_duration = 0.3
 export var dash_speed = 400
@@ -12,10 +13,12 @@ var can_dash = true
 var dashing = false
 # invulnerability
 export var invulnerability_duration = 1.0
-
+# weapon inventory
 export(Array, Resource) var weapons = []
 var current_weapon_index = 0
 
+func _ready():
+    healthbar.set_max_value(max_health)
 
 func get_input(_delta):
     velocity = Vector2.ZERO
@@ -39,20 +42,20 @@ func get_input(_delta):
         dash()
 
     # weapon selection
-    if Input.is_action_just_pressed('weapon_up'):
+    if Input.is_action_just_released('weapon_up'):
         current_weapon_index += 1
         if current_weapon_index > len(weapons) - 1:
             current_weapon_index = 0
-        weapon.weapon = weapons[current_weapon_index]
-    if Input.is_action_just_pressed('weapon_down'):
+        weapon.set_weapon(weapons[current_weapon_index])
+    if Input.is_action_just_released('weapon_down'):
         current_weapon_index -= 1
         if current_weapon_index < 0:
             current_weapon_index = len(weapons) - 1
-        weapon.weapon = weapons[current_weapon_index] 
+        weapon.set_weapon(weapons[current_weapon_index])
 
     # give the current direction to the camera focus
     lookahead.call('direction', velocity, get_local_mouse_position())
-    
+
     if dashing:
         velocity = velocity.normalized() * current_dash_speed
     else:
@@ -60,6 +63,23 @@ func get_input(_delta):
         velocity = velocity.normalized() * speed
 
     top.look_at(get_global_mouse_position())
+
+# change weapon with the scroll wheel
+func _input(event : InputEvent) -> void:
+    if event is InputEventMouseButton:
+        event as InputEventMouseButton
+        if event.pressed:
+            match event.button_index:
+                BUTTON_WHEEL_UP:
+                    current_weapon_index += 1
+                    if current_weapon_index > len(weapons) - 1:
+                        current_weapon_index = 0
+                        weapon.set_weapon(weapons[current_weapon_index])                        
+                BUTTON_WHEEL_DOWN:
+                    current_weapon_index -= 1
+                    if current_weapon_index < 0:
+                        current_weapon_index = len(weapons) - 1
+                        weapon.set_weapon(weapons[current_weapon_index])
 
 
 func dash():
@@ -85,6 +105,8 @@ func custom_take_hit(_damage, _hit_direction) -> void:
     $Invulnerability.start(invulnerability_duration)
     invulnerable = true
     modulate.a = 0.8
+    # health bar
+    healthbar.update_bar(health)
 
 
 func die():

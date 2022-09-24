@@ -1,8 +1,9 @@
-[gd_resource type="Resource" load_steps=4 format=2]
+[gd_resource type="Resource" load_steps=5 format=2]
 
 [ext_resource path="res://Weapon/Data/WeaponResource.gd" type="Script" id=1]
 [ext_resource path="res://audio/Burst.wav" type="AudioStream" id=2]
 [ext_resource path="res://Projectile/Data/ShotgunProjectile.tres" type="Resource" id=3]
+[ext_resource path="res://Weapon/tiny_gun_icons/sg2.png" type="Texture" id=4]
 
 [resource]
 script = ExtResource( 1 )
@@ -13,5 +14,6 @@ inaccuracy = 0.5
 kickback = 200
 shake_trauma = 0.4
 max_trauma = 0.7
+texture = ExtResource( 4 )
 projectile = ExtResource( 3 )
 fire_sounds = [ ExtResource( 2 ) ]

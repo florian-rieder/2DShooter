@@ -29,6 +29,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Characters/GunnerEnemy/GunnerEnemy.gd"
 }, {
+"base": "Resource",
+"class": "HealthPack",
+"language": "GDScript",
+"path": "res://Powerup/HealthPack.gd"
+}, {
 "base": "Area2D",
 "class": "Powerup",
 "language": "GDScript",
@@ -79,6 +84,7 @@ _global_script_class_icons={
 "Character": "",
 "Enemy": "",
 "GunnerEnemy": "",
+"HealthPack": "",
 "Powerup": "",
 "ProjectileResource": "",
 "ShakeCamera2D": "",

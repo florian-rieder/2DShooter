@@ -1,10 +1,12 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Characters/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/BaseEnemy/BaseEnemy.gd" type="Script" id=2]
 [ext_resource path="res://modulate_white.gdshader" type="Shader" id=3]
 [ext_resource path="res://StateMachine/StateMachine.gd" type="Script" id=4]
 [ext_resource path="res://Characters/BaseEnemy/Chase.gd" type="Script" id=5]
+[ext_resource path="res://Powerup/HealthPack.tres" type="Resource" id=6]
+[ext_resource path="res://Powerup/Powerup.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ShaderMaterial" id=2]
 resource_local_to_scene = true
@@ -14,6 +16,8 @@ shader_param/active = false
 [node name="BaseEnemy" groups=["Enemy"] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 health = 30
+powerup = ExtResource( 7 )
+health_pack = ExtResource( 6 )
 
 [node name="TopSprite" parent="Top" index="0"]
 material = SubResource( 2 )

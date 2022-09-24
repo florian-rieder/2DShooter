@@ -67,7 +67,6 @@ func get_input(_delta):
 # change weapon with the scroll wheel
 func _input(event : InputEvent) -> void:
     if event is InputEventMouseButton:
-        event as InputEventMouseButton
         if event.pressed:
             match event.button_index:
                 BUTTON_WHEEL_UP:
@@ -93,6 +92,12 @@ func dash():
 func powerup(powerup):
     if powerup is WeaponResource:
         weapon.set_weapon(powerup)
+
+    if powerup is HealthPack:
+        health += powerup.amount
+        if health > max_health:
+            health = max_health
+        healthbar.update_bar(health)
 
 
 func custom_take_hit(_damage, _hit_direction) -> void:

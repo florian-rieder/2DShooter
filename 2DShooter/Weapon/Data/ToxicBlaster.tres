@@ -1,4 +1,4 @@
-[gd_resource type="Resource" load_steps=15 format=2]
+[gd_resource type="Resource" load_steps=16 format=2]
 
 [ext_resource path="res://Weapon/Data/WeaponResource.gd" type="Script" id=1]
 [ext_resource path="res://Projectile/Data/ProjectileResource.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Impact/Impact.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Projectile/All_Fire_Bullet_Pixel_16x16.png" type="Texture" id=7]
 [ext_resource path="res://audio/Impact.wav" type="AudioStream" id=8]
+[ext_resource path="res://Weapon/tiny_gun_icons/gs49.png" type="Texture" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
 atlas = ExtResource( 7 )
@@ -55,5 +56,6 @@ inaccuracy = 0.05
 kickback = 100
 shake_trauma = 0.3
 max_trauma = 0.3
+texture = ExtResource( 9 )
 projectile = SubResource( 6 )
 fire_sounds = [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 3 ) ]

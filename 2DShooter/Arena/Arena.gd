@@ -64,11 +64,11 @@ func spawn_wave():
     for _i in range(randi() % wave_size):
         var chosen_enemy_type = Util.weighted_random_choice(enemy_types)
         var new_enemy = selected_spawnpoint.spawn_random(chosen_enemy_type)
-        new_enemy.arena = self
+        new_enemy.connect('enemy_died', self, '_on_enemy_died')
         enemies.append(new_enemy)
 
 
-func enemy_died(enemy):
+func _on_enemy_died(enemy):
     kill_count += 1
     var i = 0
     for e in enemies:
@@ -80,7 +80,7 @@ func enemy_died(enemy):
 
 func _on_WaveTimer_timeout():
     #print(len(enemies))
-    #print(kill_count)
+    print(kill_count)
     if len(enemies) >= max_enemies:
         return
     spawn_wave()

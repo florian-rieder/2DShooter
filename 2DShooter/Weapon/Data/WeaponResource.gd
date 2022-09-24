@@ -9,6 +9,7 @@ export var inaccuracy : float
 export var kickback : int
 export var shake_trauma : float
 export var max_trauma : float
+export (StreamTexture) var texture
 
 # Note: It is the projectile that inflicts damage, not the weapon !
 export (Resource) var projectile

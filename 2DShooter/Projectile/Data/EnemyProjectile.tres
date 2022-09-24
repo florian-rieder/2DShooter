@@ -36,7 +36,7 @@ animations = [ {
 [resource]
 script = ExtResource( 1 )
 speed = 200
-damage = 10
+damage = 20
 piercing = 0
 pierce_speed_loss = 0
 avoid_enemies = true

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/RailMaybeGun_with less tail.wav-8dc21682dc79937df3a0bc7ace56c3fd.sample"
+
+[deps]
+
+source_file="res://audio/RailMaybeGun_with less tail.wav"
+dest_files=[ "res://.import/RailMaybeGun_with less tail.wav-8dc21682dc79937df3a0bc7ace56c3fd.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

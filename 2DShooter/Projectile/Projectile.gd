@@ -59,6 +59,7 @@ func play_hit_sound(): # To avoid the sound from clipping, we generate a new aud
     var audio_node = AudioStreamPlayer2D.new()
     var pick_sound = randi() % projectile.impact_sounds.size() # Pick a random sound
     audio_node.stream = projectile.impact_sounds[pick_sound]
+    audio_node.volume_db = -10
     audio_node.pitch_scale = rand_range(0.95, 1.05)
     audio_node.bus = "SFX"
     audio_node.global_position = global_position

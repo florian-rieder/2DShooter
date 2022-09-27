@@ -1,6 +1,6 @@
 [gd_resource type="Resource" load_steps=16 format=2]
 
-[ext_resource path="res://Weapon/Data/WeaponResource.gd" type="Script" id=1]
+[ext_resource path="res://Weapon/WeaponResource.gd" type="Script" id=1]
 [ext_resource path="res://Projectile/Data/ProjectileResource.gd" type="Script" id=2]
 [ext_resource path="res://audio/Toxic5.wav" type="AudioStream" id=3]
 [ext_resource path="res://audio/Toxic2.wav" type="AudioStream" id=4]

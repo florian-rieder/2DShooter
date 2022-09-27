@@ -1,7 +1,7 @@
 [gd_resource type="Resource" load_steps=5 format=2]
 
-[ext_resource path="res://Weapon/Data/WeaponResource.gd" type="Script" id=1]
-[ext_resource path="res://audio/Burst.wav" type="AudioStream" id=2]
+[ext_resource path="res://Weapon/WeaponResource.gd" type="Script" id=1]
+[ext_resource path="res://audio/Shotgun.wav" type="AudioStream" id=2]
 [ext_resource path="res://Projectile/Data/ShotgunProjectile.tres" type="Resource" id=3]
 [ext_resource path="res://Weapon/tiny_gun_icons/sg2.png" type="Texture" id=4]
 

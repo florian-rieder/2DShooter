@@ -14,6 +14,7 @@ export var blood_drops = 4
 # movement
 var velocity : Vector2 = Vector2.ZERO
 
+export var max_kick = 200
 export var kick_decay = 10
 var kick_direction : Vector2 = Vector2.ZERO
 var kick_speed = 0
@@ -53,7 +54,9 @@ func take_hit(damage, hit_direction):
         return
 
     kick_direction = hit_direction
-    kick_speed = damage * 10
+    kick_speed = damage * 8
+    if kick_speed > max_kick:
+        kick_speed = max_kick
 
     # death condition
     

@@ -14,6 +14,9 @@ func set_max_value(max_value):
 
 
 func update_bar(value):
+    if value >= healthbar.max_value:
+        hide()
+        return
     healthbar.texture_progress = bar_green
     if value < healthbar.max_value * 0.35:
         healthbar.texture_progress = bar_red

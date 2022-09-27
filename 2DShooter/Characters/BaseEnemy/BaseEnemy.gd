@@ -13,7 +13,7 @@ var direction = Vector2.ZERO
 var on_screen := false
 export (PackedScene) var powerup
 export (Resource) var health_pack
-export var health_drop_probability = 0.02
+export var health_drop_probability = 0.05
 
 
 func get_input(_delta):
@@ -26,11 +26,12 @@ func die():
         drop_health()
     queue_free()
 
+
 func drop_health() -> void:
     var instance = powerup.instance()
     instance.set_powerup(health_pack)
     instance.global_position = global_position
-    get_tree().get_root().add_child(instance)
+    get_tree().get_root().call_deferred('add_child', instance)
 
 
 func _on_VisibilityEnabler2D_screen_exited():

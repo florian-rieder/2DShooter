@@ -5,6 +5,9 @@ onready var healthbar = $Progress
 var bar_green = preload("res://UI/HealthBar/Progress.png")
 var bar_red = preload("res://UI/HealthBar/ProgressRed.png")
 
+var red_percent_threshold = 0.4
+export var last_stand_threshold = 0
+
 func _ready():
     hide()
 
@@ -18,8 +21,12 @@ func update_bar(value):
         hide()
         return
     healthbar.texture_progress = bar_green
-    if value < healthbar.max_value * 0.35:
+    if value < (healthbar.max_value) * red_percent_threshold:
         healthbar.texture_progress = bar_red
     if value < healthbar.max_value:
         show()
-    healthbar.value = value
+    
+    if value < last_stand_threshold:
+        healthbar.value = 5
+    else:
+        healthbar.value = value

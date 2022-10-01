@@ -57,6 +57,7 @@ texture = ExtResource( 3 )
 
 [node name="HealthBar" parent="." index="9" instance=ExtResource( 11 )]
 position = Vector2( -8, 8 )
+last_stand_threshold = 50
 
 [connection signal="shot_fired" from="Top/Weapon" to="." method="_on_Weapon_shot_fired"]
 [connection signal="shot_fired" from="Top/Weapon" to="Camera2D" method="_on_Weapon_shot_fired"]

@@ -1,5 +1,7 @@
 extends Character
 
+signal weapon_changed(WeaponResource)
+
 # Component references
 onready var lookahead = $Lookahead
 onready var weapon = $Top/Weapon
@@ -20,6 +22,9 @@ var current_weapon_index = 0
 var can_control = true
 
 func _ready():
+    GlobalSignal.add_emitter("weapon_changed", self)
+    GlobalSignal.emit_signal_when_ready('weapon_changed', [weapon.weapon], self)
+
     healthbar.set_max_value(max_health)
 
 func get_input(_delta):
@@ -52,11 +57,14 @@ func get_input(_delta):
         if current_weapon_index > len(weapons) - 1:
             current_weapon_index = 0
         weapon.set_weapon(weapons[current_weapon_index])
+        emit_signal('weapon_changed', weapon.weapon)        
     if Input.is_action_just_released('weapon_down'):
         current_weapon_index -= 1
         if current_weapon_index < 0:
             current_weapon_index = len(weapons) - 1
         weapon.set_weapon(weapons[current_weapon_index])
+        emit_signal('weapon_changed', weapon.weapon)
+        
 
     # give the current direction to the camera focus
     lookahead.call('direction', velocity, get_local_mouse_position())
@@ -71,6 +79,9 @@ func get_input(_delta):
 
 # change weapon with the scroll wheel
 func _input(event : InputEvent) -> void:
+    if not can_control:
+        return
+
     if event is InputEventMouseButton:
         if event.pressed:
             match event.button_index:
@@ -78,12 +89,14 @@ func _input(event : InputEvent) -> void:
                     current_weapon_index += 1
                     if current_weapon_index > len(weapons) - 1:
                         current_weapon_index = 0
-                        weapon.set_weapon(weapons[current_weapon_index])                        
+                        weapon.set_weapon(weapons[current_weapon_index])
+                        emit_signal('weapon_changed', weapon.weapon)
                 BUTTON_WHEEL_DOWN:
                     current_weapon_index -= 1
                     if current_weapon_index < 0:
                         current_weapon_index = len(weapons) - 1
                         weapon.set_weapon(weapons[current_weapon_index])
+                        emit_signal('weapon_changed', weapon.weapon)
 
 
 func dash():
@@ -97,6 +110,8 @@ func dash():
 func powerup(powerup):
     if powerup is WeaponResource:
         weapon.set_weapon(powerup)
+        emit_signal('weapon_changed', weapon.weapon)        
+        
 
     if powerup is HealthPack:
         health += powerup.amount

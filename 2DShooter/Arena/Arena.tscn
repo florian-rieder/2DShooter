@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Arena/Arena.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/WeaponHUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tileset.png" type="Texture" id=4]
 [ext_resource path="res://UI/ArenaCleared/ArenaCleared.tscn" type="PackedScene" id=5]
 
@@ -127,5 +128,12 @@ position = Vector2( 800, 800 )
 
 [node name="ArenaCleared" parent="UI" instance=ExtResource( 5 )]
 visible = false
+
+[node name="WeaponHUD" parent="UI" instance=ExtResource( 3 )]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+margin_left = -67.0
+margin_top = -17.0
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]

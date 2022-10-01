@@ -42,9 +42,9 @@ anchor_bottom = 1.0
 alignment = 1
 
 [node name="Title" type="Label" parent="VBoxContainer"]
-margin_top = 97.0
+margin_top = 95.0
 margin_right = 640.0
-margin_bottom = 137.0
+margin_bottom = 135.0
 theme = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 0.733333, 0.176471, 1 )
 custom_fonts/font = SubResource( 1 )
@@ -54,9 +54,9 @@ valign = 1
 uppercase = true
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 141.0
+margin_top = 139.0
 margin_right = 640.0
-margin_bottom = 217.0
+margin_bottom = 215.0
 custom_constants/margin_right = 50
 custom_constants/margin_left = 50
 
@@ -97,16 +97,16 @@ text = "99"
 align = 2
 
 [node name="ButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 221.0
+margin_top = 219.0
 margin_right = 640.0
-margin_bottom = 263.0
+margin_bottom = 265.0
 theme = ExtResource( 2 )
 alignment = 1
 
 [node name="Continue" type="Button" parent="VBoxContainer/ButtonsContainer"]
-margin_left = 120.0
-margin_right = 198.0
-margin_bottom = 42.0
+margin_left = 87.0
+margin_right = 231.0
+margin_bottom = 46.0
 focus_neighbour_right = NodePath("../Menu")
 focus_next = NodePath("../Menu")
 focus_previous = NodePath("../Menu")
@@ -125,7 +125,7 @@ flat = true
 [node name="Menu" type="Button" parent="VBoxContainer/ButtonsContainer"]
 margin_left = 455.0
 margin_right = 506.0
-margin_bottom = 42.0
+margin_bottom = 46.0
 focus_neighbour_left = NodePath("../Continue")
 focus_next = NodePath("../Continue")
 focus_previous = NodePath("../Continue")

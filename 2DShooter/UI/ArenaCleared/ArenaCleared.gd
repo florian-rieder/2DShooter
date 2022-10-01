@@ -11,7 +11,7 @@ func update_labels(data : Dictionary) -> void:
 
 
 func _on_Continue_pressed():
-    pass # Replace with function body.
+    GameManager.next_level()
 
 
 func _on_Menu_pressed():

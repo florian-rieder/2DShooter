@@ -19,6 +19,8 @@ func _ready() -> void:
     noise.seed = randi()
     noise.period = 4
     noise.octaves = 2
+    
+    GlobalSignal.add_listener('explosion', self, '_on_Explosion')
 
 
 func _process(delta) -> void:

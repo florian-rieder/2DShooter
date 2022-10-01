@@ -3,12 +3,12 @@ extends Area2D
 signal explosion(shake_trauma)
 
 export var damage = 200
-export var trauma = 1
+export var trauma = 0.5
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-    #GlobalSignal.add_emitter('explosion', self)
+    GlobalSignal.add_emitter('explosion', self)
     # wait .1 second in order to prevent an error with the Area2D
     yield(get_tree().create_timer(0.1), "timeout")
     emit_signal("explosion", trauma)
@@ -28,4 +28,5 @@ func _ready():
 
 
 func _on_AnimatedSprite_animation_finished():
+    GlobalSignal.remove_emitter('explosion', self)
     queue_free()

@@ -7,7 +7,6 @@ const Util = preload("res://Utility.gd")
 # enemies
 export (Dictionary) var enemy_types = Dictionary()
 export var max_enemies = 75
-export var kill_goal = 200
 var kill_count = 0
 var enemies = Array()
 var spawnpoints = null
@@ -33,13 +32,14 @@ func sense_difficulty():
     var enemy_cap_percentage = len(enemies) / max_enemies
 
     # find the player DPS divided by the health pool of all enemies
-    var weapon = player.weapon
-    var projectile_damage = 20 # FIXME: find out how to get the projectile damage...
-    var rounds_per_second = weapon.weapon.rate_of_fire / 60 # rpm -> rps
+    var weapon = player.weapon.weapon
+    var projectile_damage = weapon.projectile.damage
+    var rounds_per_second = weapon.rate_of_fire / 60 # rpm -> rps
+    var dps = rounds_per_second * projectile_damage
     var enemy_health_pool = 0
     for enemy in enemies:
         enemy_health_pool += enemy.health
-    var dps_over_enemy_health_pool = rounds_per_second * projectile_damage / enemy_health_pool
+    var dps_over_enemy_health_pool = dps / enemy_health_pool
     # estimate current difficulty level based on metrics
     return enemy_cap_percentage + dps_over_enemy_health_pool
 
@@ -59,7 +59,11 @@ func adjust_difficulty():
 
 
 func spawn_wave():
+    if len(enemy_types) == 0:
+        return
+
     var selected_spawnpoint = get_random_offscreen_spawnpoint()
+
     # TODO: choose enemy types and numbers
     for _i in range(randi() % wave_size):
         var chosen_enemy_type = Util.weighted_random_choice(enemy_types)

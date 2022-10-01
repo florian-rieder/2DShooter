@@ -17,10 +17,15 @@ export var invulnerability_duration = 1.0
 export(Array, Resource) var weapons = []
 var current_weapon_index = 0
 
+var can_control = true
+
 func _ready():
     healthbar.set_max_value(max_health)
 
 func get_input(_delta):
+    if not can_control:
+        return
+
     velocity = Vector2.ZERO
     if Input.is_action_pressed('right'):
         velocity.x += 1

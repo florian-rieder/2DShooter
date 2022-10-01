@@ -13,7 +13,7 @@ var direction = Vector2.ZERO
 var on_screen := false
 export (PackedScene) var powerup
 export (Resource) var health_pack
-export var health_drop_probability = 0.05
+export var health_drop_probability = 0.03
 
 
 func get_input(_delta):
@@ -22,7 +22,7 @@ func get_input(_delta):
 
 func die():
     emit_signal('enemy_died', self)
-    if randf() < health_drop_probability:
+    if target.health < target.max_health / 2 and randf() < health_drop_probability:
         drop_health()
     queue_free()
 

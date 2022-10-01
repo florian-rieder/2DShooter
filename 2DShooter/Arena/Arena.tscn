@@ -2,8 +2,8 @@
 
 [ext_resource path="res://Arena/Arena.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Characters/BaseEnemy/BaseEnemy.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tileset.png" type="Texture" id=4]
+[ext_resource path="res://UI/ArenaCleared/ArenaCleared.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -105,9 +105,6 @@ points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
 
 [node name="Arena" type="Node2D"]
 script = ExtResource( 1 )
-enemy_types = {
-1.0: ExtResource( 3 )
-}
 
 [node name="TileMap" type="TileMap" parent="."]
 rotation = -0.000367661
@@ -125,5 +122,10 @@ position = Vector2( 800, 800 )
 [node name="Scenery" type="Node2D" parent="."]
 
 [node name="WaveTimer" type="Timer" parent="."]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ArenaCleared" parent="UI" instance=ExtResource( 5 )]
+visible = false
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]

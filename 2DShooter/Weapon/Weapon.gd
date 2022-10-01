@@ -1,7 +1,7 @@
 extends Node2D
 class_name Weapon
 
-signal shot_fired
+signal shot_fired(WeaponResource)
 
 export (Resource) var weapon setget set_weapon, get_weapon
 export (PackedScene) var projectile_scene

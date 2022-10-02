@@ -8,7 +8,7 @@
 script = ExtResource( 1 )
 name = "Mech Gatling"
 projectile_angles = [ 0.0 ]
-rate_of_fire = 80
+rate_of_fire = 96
 inaccuracy = 0.2
 kickback = 20
 shake_trauma = 0.0

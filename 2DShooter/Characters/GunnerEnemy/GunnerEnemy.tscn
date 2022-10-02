@@ -19,6 +19,7 @@ radius = 142.004
 [node name="GunnerEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
 health = 100
+max_money_drop = 30
 
 [node name="Weapon" parent="Top" index="0" instance=ExtResource( 5 )]
 weapon = ExtResource( 6 )

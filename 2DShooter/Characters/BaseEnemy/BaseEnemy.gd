@@ -15,6 +15,8 @@ export (PackedScene) var powerup
 export (Resource) var health_pack
 export var health_drop_probability = 0.03
 
+export var max_money_drop = 10
+
 
 func get_input(_delta):
     top.look_at(target.global_position)
@@ -22,6 +24,7 @@ func get_input(_delta):
 
 func die():
     emit_signal('enemy_died', self)
+    GameManager.money += randi() % max_money_drop
     if target.health < target.max_health / 2 and randf() < health_drop_probability:
         drop_health()
     queue_free()

@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Characters/GunnerEnemy/GunnerEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/MechEnemy/MechEnemy.png" type="Texture" id=2]
 [ext_resource path="res://modulate_white.gdshader" type="Shader" id=3]
 [ext_resource path="res://Characters/MechEnemy/MechEnemy.gd" type="Script" id=4]
-[ext_resource path="res://Blood/Blood.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Weapon/Data/MechGatling.tres" type="Resource" id=7]
 
 [sub_resource type="ShaderMaterial" id=1]
@@ -15,15 +14,14 @@ shader_param/active = false
 [sub_resource type="CircleShape2D" id=2]
 radius = 16.0
 
-[node name="MechEnemy" groups=["Character"] instance=ExtResource( 1 )]
-z_index = 1000
+[node name="MechEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
 health = 500
 max_health = 500
 speed = 60
-blood = ExtResource( 6 )
 blood_drops = 0
 health_drop_probability = 0.2
+max_money_drop = 100
 
 [node name="Weapon" parent="Top" index="0"]
 position = Vector2( 8, 6 )
@@ -31,7 +29,6 @@ weapon = ExtResource( 7 )
 
 [node name="TopSprite" parent="Top" index="1"]
 material = SubResource( 1 )
-rotation = 1.5708
 texture = ExtResource( 2 )
 
 [node name="Hurtbox" parent="." index="1"]

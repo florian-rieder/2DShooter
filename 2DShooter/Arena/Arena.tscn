@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Arena/Arena.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/WeaponHUD/WeaponHUD.tscn" type="PackedScene" id=3]
 [ext_resource path="res://tileset.png" type="Texture" id=4]
 [ext_resource path="res://UI/ArenaCleared/ArenaCleared.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI/Money/Money.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -135,5 +136,7 @@ anchor_top = 1.0
 anchor_right = 0.5
 margin_left = -67.0
 margin_top = -17.0
+
+[node name="Money" parent="UI" instance=ExtResource( 6 )]
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=5 format=2]
+
+[ext_resource path="res://Weapon/WeaponResource.gd" type="Script" id=1]
+[ext_resource path="res://audio/shoot_1.wav" type="AudioStream" id=2]
+[ext_resource path="res://Projectile/Data/PistolProjectile.tres" type="Resource" id=3]
+[ext_resource path="res://Weapon/tiny_gun_icons/desert_hawk.png" type="Texture" id=4]
+
+[resource]
+script = ExtResource( 1 )
+name = "Pistol"
+projectile_angles = [ 0.0 ]
+rate_of_fire = 150
+spread = 0.2
+kickback = 40
+shake_trauma = 0.11
+max_trauma = 0.45
+texture = ExtResource( 4 )
+projectile = ExtResource( 3 )
+fire_sounds = [ ExtResource( 2 ) ]

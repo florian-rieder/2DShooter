@@ -15,6 +15,17 @@ onready var _root = get_tree().get_root()
 onready var _seconds_per_shot = 60.0 / weapon.rate_of_fire # the casting is important
 var _time_since_last_shot = 0
 
+var _noise = OpenSimplexNoise.new()
+var _noise_x = 0
+
+
+func _ready():
+    # Configure
+    _noise.seed = randi()
+    _noise.octaves = 4
+    _noise.period = 20.0
+    _noise.persistence = 0.8
+
 
 func _physics_process(delta):
     _time_since_last_shot += delta
@@ -43,9 +54,12 @@ func can_fire():
 
 
 func spawn_projectile(deviation = 0.0):
-    var inac = weapon.inaccuracy/2 # inaccuracy
-    var random_deviation = rand_range(-inac, inac)
+    var spread = weapon.spread/2 # inaccuracy
+    _noise_x += 1
+    var random_deviation = _noise.get_noise_1d(_noise_x) * spread
     var b = projectile_scene.instance()
+    # apply modifiers
+    #b.damage_modifier = damage_modifier
     b.projectile = weapon.projectile
     _root.add_child(b)
     b.global_transform = muzzle.global_transform

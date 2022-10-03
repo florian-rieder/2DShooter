@@ -7,10 +7,10 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Sniper"
+name = "Railgun"
 projectile_angles = [ 0.0 ]
 rate_of_fire = 60
-inaccuracy = 0.05
+spread = 0.2
 kickback = 100
 shake_trauma = 0.3
 max_trauma = 0.3

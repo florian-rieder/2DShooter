@@ -4,10 +4,10 @@
 [ext_resource path="res://SpawnPoint/SpawnPoint.gd" type="Script" id=2]
 [ext_resource path="res://Weapon/Data/SMG.tres" type="Resource" id=3]
 [ext_resource path="res://ExplosiveBarrel/ExplosiveBarrel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Weapon/Data/SlowButHeavy.tres" type="Resource" id=5]
+[ext_resource path="res://Weapon/Data/GrenadeLauncher.tres" type="Resource" id=5]
 [ext_resource path="res://Powerup/Powerup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Weapon/Data/Shotgun.tres" type="Resource" id=8]
-[ext_resource path="res://Weapon/Data/Sniper.tres" type="Resource" id=9]
+[ext_resource path="res://Weapon/Data/Railgun.tres" type="Resource" id=9]
 [ext_resource path="res://ExplosiveBarrel/ExplosiveBarrelCluster5.tscn" type="PackedScene" id=10]
 
 [node name="TestArena" instance=ExtResource( 1 )]

@@ -8,9 +8,9 @@
 [resource]
 script = ExtResource( 1 )
 name = "Shotgun"
-projectile_angles = [ 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 ]
+projectile_angles = [ -0.5, -0.4, -0.3, -0.2, -0.1, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5 ]
 rate_of_fire = 80
-inaccuracy = 0.5
+spread = 0.8
 kickback = 200
 shake_trauma = 0.4
 max_trauma = 0.7

@@ -7,13 +7,13 @@
 
 [resource]
 script = ExtResource( 1 )
-name = "Heavy"
+name = "Grenade launcher"
 projectile_angles = [ 0.0 ]
 rate_of_fire = 75
-inaccuracy = 0.1
+spread = 2.0
 kickback = 150
-shake_trauma = 0.5
-max_trauma = 0.9
+shake_trauma = 0.2
+max_trauma = 0.3
 texture = ExtResource( 4 )
 projectile = ExtResource( 2 )
 fire_sounds = [ ExtResource( 3 ) ]

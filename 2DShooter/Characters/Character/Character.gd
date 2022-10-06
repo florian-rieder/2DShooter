@@ -19,7 +19,7 @@ export var kick_decay = 10
 var kick_direction : Vector2 = Vector2.ZERO
 var kick_speed = 0
 
-var invulnerable = false
+export var invulnerable = false
 
 
 onready var top = $Top

@@ -1,9 +1,11 @@
-extends StaticBody2D
+extends KinematicBody2D
 
-export (PackedScene) var explosion
+export (PackedScene) var Explosion
 var health = 10
 
-var is_on_screen = false
+
+func _ready():
+    visible = false
 
 
 func take_hit(damage, _hit_direction):
@@ -13,17 +15,18 @@ func take_hit(damage, _hit_direction):
 
 
 func die():
-    if not is_on_screen:
+    # don't explode offscreen, that's not cool
+    if not visible:
         return
-    var boom = explosion.instance()
+    var boom = Explosion.instance()
     boom.global_position = global_position
     get_tree().get_root().call_deferred('add_child', boom)
     queue_free()
 
 
 func _on_VisibilityNotifier2D_screen_entered():
-    is_on_screen = true
+    visible = true
 
 
 func _on_VisibilityNotifier2D_screen_exited():
-    is_on_screen = false
+    visible = false

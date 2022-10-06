@@ -8,9 +8,12 @@ var hits = 0
 var speed_malus = 0
 var min_speed = 400
 
+var damage_modifier = 0
+
 
 func _ready():
     $Sprite.frames = projectile.frames
+    visible = false
 
 
 func _physics_process(delta):
@@ -25,7 +28,8 @@ func _on_Projectile_body_entered(body):
     # inflict damage
     if body.has_method('take_hit'):
         var hit_direction = Vector2.RIGHT.rotated(rotation)
-        body.call('take_hit', projectile.damage, hit_direction)
+        var damage = projectile.damage * (1 + damage_modifier)
+        body.call('take_hit', damage, hit_direction)
 
     # feedback
     play_hit_sound()
@@ -72,3 +76,11 @@ func play_hit_sound(): # To avoid the sound from clipping, we generate a new aud
 func _on_Timer_timeout():
     # destroy the projectile after a while
     queue_free()
+
+
+func _on_VisibilityEnabler2D_screen_entered():
+    visible = true
+
+
+func _on_VisibilityEnabler2D_screen_exited():
+    visible = false

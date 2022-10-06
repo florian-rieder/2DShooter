@@ -10,13 +10,14 @@ onready var right_ray = $RightRay
 
 onready var target = get_tree().get_nodes_in_group('Player')[0]
 var direction = Vector2.ZERO
-var on_screen := false
 export (PackedScene) var powerup
 export (Resource) var health_pack
 export var health_drop_probability = 0.03
 
 export var max_money_drop = 10
 
+func _ready():
+    visible = false
 
 func get_input(_delta):
     top.look_at(target.global_position)
@@ -38,8 +39,8 @@ func drop_health() -> void:
 
 
 func _on_VisibilityEnabler2D_screen_exited():
-    on_screen = false
+    visible = false
 
 
 func _on_VisibilityEnabler2D_screen_entered():
-    on_screen = true
+    visible = true

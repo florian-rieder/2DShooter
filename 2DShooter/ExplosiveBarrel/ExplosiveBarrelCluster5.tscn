@@ -7,14 +7,14 @@
 [node name="ExplosiveBarrel36" parent="." instance=ExtResource( 1 )]
 position = Vector2( -17, 4 )
 
-[node name="ExplosiveBarrel37" parent="." instance=ExtResource( 1 )]
-position = Vector2( -5, -9 )
-
 [node name="ExplosiveBarrel38" parent="." instance=ExtResource( 1 )]
-position = Vector2( -1, 7 )
+position = Vector2( 3, 4 )
 
 [node name="ExplosiveBarrel39" parent="." instance=ExtResource( 1 )]
-position = Vector2( 11, -6 )
+position = Vector2( 23, 4 )
 
 [node name="ExplosiveBarrel40" parent="." instance=ExtResource( 1 )]
-position = Vector2( 15, 10 )
+position = Vector2( 13, 11 )
+
+[node name="ExplosiveBarrel37" parent="." instance=ExtResource( 1 )]
+position = Vector2( -9, 11 )

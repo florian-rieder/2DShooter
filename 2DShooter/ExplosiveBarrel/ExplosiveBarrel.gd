@@ -1,7 +1,9 @@
 extends KinematicBody2D
 
-export (PackedScene) var Explosion
-var health = 10
+export(PackedScene) var Explosion
+export(int) var max_health = 75
+onready var health = max_health
+export(int) var damage_states = 3
 
 
 func _ready():
@@ -10,6 +12,14 @@ func _ready():
 
 func take_hit(damage, _hit_direction):
     health -= damage
+
+    var current_damage_state = 1
+    for i in range(1, damage_states):
+        if health < max_health / i:
+            current_damage_state = i
+
+    $Sprite.region_rect = Rect2(current_damage_state * 32, 0, 32, 32)
+
     if health <= 0:
         die()
 

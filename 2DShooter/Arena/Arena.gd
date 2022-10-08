@@ -6,7 +6,7 @@ const Util = preload("res://Utility.gd")
 
 # enemies
 export (Dictionary) var enemy_types = Dictionary()
-export var max_enemies = 75
+export var max_enemies = 50
 var kill_count = 0
 var enemies = Array()
 var spawnpoints = null
@@ -83,8 +83,6 @@ func _on_enemy_died(enemy):
 
 
 func _on_WaveTimer_timeout():
-    #print(len(enemies))
-    print(kill_count)
     if len(enemies) >= max_enemies:
         return
     spawn_wave()

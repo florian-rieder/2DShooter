@@ -16,7 +16,7 @@ weapon = ExtResource( 2 )
 projectile_scene = ExtResource( 4 )
 
 [node name="Muzzle" type="Position2D" parent="."]
-position = Vector2( 8, 0 )
+position = Vector2( 16, 0 )
 __meta__ = {
 "_gizmo_extents_": 2.0
 }

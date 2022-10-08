@@ -8,6 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 name = "SMG"
+id = "smg"
 projectile_angles = [ 0.0 ]
 rate_of_fire = 900
 spread = 1.0

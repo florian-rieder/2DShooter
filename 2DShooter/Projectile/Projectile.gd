@@ -8,7 +8,7 @@ var hits = 0
 var speed_malus = 0
 var min_speed = 400
 
-var damage_modifier = 0
+var damage_upgrade = 0
 
 
 func _ready():
@@ -28,7 +28,7 @@ func _on_Projectile_body_entered(body):
     # inflict damage
     if body.has_method('take_hit'):
         var hit_direction = Vector2.RIGHT.rotated(rotation)
-        var damage = projectile.damage * (1 + damage_modifier)
+        var damage = projectile.damage * (1 + damage_upgrade)
         body.call('take_hit', damage, hit_direction)
 
     # feedback

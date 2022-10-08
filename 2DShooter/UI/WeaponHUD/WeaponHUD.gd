@@ -11,5 +11,4 @@ func update_display(icon, text):
 
 
 func _on_Player_changed_weapon(weapon : WeaponResource):
-    print('888888888888sdasdasdasd')
     update_display(weapon.texture, weapon.name)

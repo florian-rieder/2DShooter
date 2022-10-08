@@ -8,6 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 name = "Grenade launcher"
+id = "grenade_launcher"
 projectile_angles = [ 0.0 ]
 rate_of_fire = 75
 spread = 2.0

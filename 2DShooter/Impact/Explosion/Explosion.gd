@@ -1,9 +1,11 @@
 extends Area2D
 
+# warning-ignore: UNUSED_SIGNAL
 signal explosion(shake_trauma, position)
 
 export var damage = 200
 export var trauma = 0.25
+export(StreamTexture) var remnant_image = null
 
 
 # Called when the node enters the scene tree for the first time.
@@ -24,7 +26,12 @@ func _ready():
             body.call('take_hit', round(effective_damage), hit_direction)
     
     $AnimatedSprite.playing = true
-    Surface.draw_explosion_impact(position)
+    if remnant_image:
+        var image = remnant_image.get_data()
+        image.convert(Image.FORMAT_RGBAH)
+        Surface.draw_image(image, position)
+    else:
+        Surface.draw_explosion_impact(position)
 
 
 func _on_AnimatedSprite_animation_finished():

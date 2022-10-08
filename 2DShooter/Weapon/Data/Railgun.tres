@@ -8,6 +8,7 @@
 [resource]
 script = ExtResource( 1 )
 name = "Railgun"
+id = "railgun"
 projectile_angles = [ 0.0 ]
 rate_of_fire = 60
 spread = 0.2

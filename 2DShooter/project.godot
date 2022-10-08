@@ -100,7 +100,7 @@ _global_script_class_icons={
 
 config/name="2D Shooter"
 run/main_scene="res://Arena/TestArena.tscn"
-boot_splash/bg_color=Color( 0.258824, 0.258824, 0.258824, 1 )
+boot_splash/bg_color=Color( 0.458824, 0.458824, 0.458824, 1 )
 config/icon="res://icon.png"
 
 [autoload]
@@ -120,6 +120,7 @@ window/size/height=360
 window/size/fullscreen=true
 window/size/test_width=1280
 window/size/test_height=720
+mouse_cursor/custom_image="res://crosshair.png"
 window/stretch/aspect="keep"
 window/stretch/shrink=4.0
 

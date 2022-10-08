@@ -68,7 +68,7 @@ func bleed(hit_direction) -> void:
     for _i in range(blood_drops):
         var blood_instance = blood.instance()
         blood_instance.global_position = global_position
-        var blood_speed = Vector2(randf() * 3 * hit_direction.x, randf() * 3 * hit_direction.y)
+        var blood_speed = Vector2(randf() * 3 * hit_direction.x, randf() * 1.5 * hit_direction.y)
         blood_instance.speed = blood_speed
         root.call_deferred("add_child", blood_instance)
 

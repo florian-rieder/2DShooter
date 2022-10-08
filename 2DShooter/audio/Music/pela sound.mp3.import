@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/pela sound.mp3-f3716cd0cda5c700b38cc80d08baf07e.mp3str"
+
+[deps]
+
+source_file="res://audio/Music/pela sound.mp3"
+dest_files=[ "res://.import/pela sound.mp3-f3716cd0cda5c700b38cc80d08baf07e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

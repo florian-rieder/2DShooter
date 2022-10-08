@@ -24,8 +24,17 @@ var can_control = true
 func _ready():
     GlobalSignal.add_emitter("weapon_changed", self)
     GlobalSignal.emit_signal_when_ready('weapon_changed', [weapon.weapon], self)
+    
+    # apply upgrades
+    max_health              *= 1 + GameManager.upgrades["max_health"]
+    speed                   *= 1 + GameManager.upgrades["speed"]
+    dash_speed              *= 1 + GameManager.upgrades["dash_speed"]
+    $DashCooldown.wait_time *= 1 - GameManager.upgrades["dash_cooldown"]
+    
+    weapon.upgrades = GameManager.upgrades["weapons"]
 
     healthbar.set_max_value(max_health)
+
 
 func get_input(_delta):
     if not can_control:
@@ -89,14 +98,22 @@ func _input(event : InputEvent) -> void:
                     current_weapon_index += 1
                     if current_weapon_index > len(weapons) - 1:
                         current_weapon_index = 0
-                        weapon.set_weapon(weapons[current_weapon_index])
-                        emit_signal('weapon_changed', weapon.weapon)
+                        change_weapon(weapons[current_weapon_index])
                 BUTTON_WHEEL_DOWN:
                     current_weapon_index -= 1
                     if current_weapon_index < 0:
                         current_weapon_index = len(weapons) - 1
-                        weapon.set_weapon(weapons[current_weapon_index])
-                        emit_signal('weapon_changed', weapon.weapon)
+                        change_weapon(weapons[current_weapon_index])
+
+
+func change_weapon(new_weapon) -> void:
+    # set upgrades
+    weapon.rate_of_fire_upgrade = GameManager.upgrades["weapons"][new_weapon.id]["rate_of_fire"]
+    weapon.spread_upgrade = GameManager.upgrades["weapons"][new_weapon.id]["spread"]
+    weapon.damage_upgrade = GameManager.upgrades["weapons"][new_weapon.id]["damage"]
+    # set weapon
+    weapon.set_weapon(new_weapon)
+    emit_signal('weapon_changed', weapon.weapon)
 
 
 func dash():

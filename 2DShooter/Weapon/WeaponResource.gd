@@ -3,6 +3,7 @@ extends Resource
 class_name WeaponResource
 
 export var name : String
+export var id : String
 export (Array, float) var projectile_angles = [0.0]
 export var rate_of_fire : int # rpm
 export var spread : float

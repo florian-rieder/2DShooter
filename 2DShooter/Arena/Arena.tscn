@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Arena/Arena.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://UI/ArenaCleared/ArenaCleared.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/Money/Money.tscn" type="PackedScene" id=6]
 [ext_resource path="res://UI/DebugHUD/DebugHUD.tscn" type="PackedScene" id=7]
+[ext_resource path="res://audio/Music/pela sound.mp3" type="AudioStream" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=13]
 points = PoolVector2Array( 0, 0, 32, 0, 32, 32, 0, 32 )
@@ -141,5 +142,10 @@ margin_top = -17.0
 [node name="Money" parent="UI" instance=ExtResource( 6 )]
 
 [node name="DebugHUD" parent="UI" instance=ExtResource( 7 )]
+
+[node name="Music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+bus = "Music"
 
 [connection signal="timeout" from="WaveTimer" to="." method="_on_WaveTimer_timeout"]

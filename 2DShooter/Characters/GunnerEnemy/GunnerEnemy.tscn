@@ -14,7 +14,7 @@ shader = ExtResource( 4 )
 shader_param/active = false
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 142.004
+radius = 150.0
 
 [node name="GunnerEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -30,15 +30,20 @@ material = SubResource( 1 )
 [node name="Engage" type="Node" parent="StateMachine" index="1"]
 script = ExtResource( 2 )
 
+[node name="BurstCooldown" type="Timer" parent="StateMachine/Engage" index="0"]
+
+[node name="BurstDuration" type="Timer" parent="StateMachine/Engage" index="1"]
+
 [node name="Flee" type="Node" parent="StateMachine" index="2"]
 script = ExtResource( 7 )
 
 [node name="FireRange" type="Area2D" parent="." index="8"]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FireRange" index="0"]
 shape = SubResource( 2 )
 
 [connection signal="shot_fired" from="Top/Weapon" to="." method="_on_Weapon_shot_fired"]
+[connection signal="timeout" from="StateMachine/Engage/BurstCooldown" to="StateMachine/Engage" method="_on_BurstCooldown_timeout"]
+[connection signal="timeout" from="StateMachine/Engage/BurstDuration" to="StateMachine/Engage" method="_on_BurstDuration_timeout"]
 [connection signal="body_entered" from="FireRange" to="." method="_on_FireRange_body_entered"]
 [connection signal="body_exited" from="FireRange" to="." method="_on_FireRange_body_exited"]

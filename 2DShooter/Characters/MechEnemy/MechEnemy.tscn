@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Characters/GunnerEnemy/GunnerEnemy.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/MechEnemy/MechEnemy.png" type="Texture" id=2]
@@ -13,6 +13,9 @@ shader_param/active = false
 
 [sub_resource type="CircleShape2D" id=2]
 radius = 16.0
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 300.0
 
 [node name="MechEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
@@ -33,3 +36,17 @@ texture = ExtResource( 2 )
 
 [node name="Hurtbox" parent="." index="1"]
 shape = SubResource( 2 )
+
+[node name="Engage" parent="StateMachine" index="1"]
+burst_behavior = true
+burst_cooldown = 1.0
+burst_duration = 0.8
+
+[node name="BurstCooldown" parent="StateMachine/Engage" index="0"]
+one_shot = true
+
+[node name="BurstDuration" parent="StateMachine/Engage" index="1"]
+one_shot = true
+
+[node name="CollisionShape2D" parent="FireRange" index="0"]
+shape = SubResource( 3 )

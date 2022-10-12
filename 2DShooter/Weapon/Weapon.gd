@@ -94,5 +94,5 @@ func get_weapon() -> WeaponResource:
 func set_weapon(new_weapon):
     weapon = new_weapon
     # set new fire rate
-    _seconds_per_shot = 60.0 / weapon.rate_of_fire * (1 + rate_of_fire_upgrade)
+    _seconds_per_shot = 60.0 / (weapon.rate_of_fire * (1 + rate_of_fire_upgrade))
     

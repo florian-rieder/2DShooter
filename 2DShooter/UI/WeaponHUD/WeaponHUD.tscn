@@ -8,21 +8,29 @@
 size = 8
 font_data = ExtResource( 3 )
 
-[node name="WeaponHUD" type="Control"]
+[node name="WeaponHUD" type="HBoxContainer"]
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -640.0
+margin_top = -20.0
+size_flags_horizontal = 9
+size_flags_vertical = 9
+alignment = 2
 script = ExtResource( 2 )
 
 [node name="Icon" type="TextureRect" parent="."]
-margin_right = 12.0
-margin_bottom = 9.0
-rect_scale = Vector2( 2, 2 )
+margin_left = 579.0
+margin_right = 596.0
+margin_bottom = 20.0
 texture = ExtResource( 1 )
 stretch_mode = 4
 
 [node name="Name" type="Label" parent="."]
-margin_left = 43.0
-margin_right = 83.0
+margin_left = 600.0
+margin_right = 640.0
 margin_bottom = 20.0
+grow_horizontal = 0
 custom_fonts/font = SubResource( 1 )
 text = "name"

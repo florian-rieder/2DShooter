@@ -37,28 +37,25 @@ func die():
 
 func take_hit(damage, hit_direction):
     # prevents the die() function being fired multiple times in some cases    
-    if not alive:
+    if not alive or invulnerable:
         return
-    # obviously, don't take a hit if invulnerable
-    if invulnerable:
-        return
+
     bleed(hit_direction)
+
     # Take damage
     health -= damage
-        # Flash white
-    $EffectsPlayer.play("FlashWhite")
-
+    # death condition
     if health <= 0:
         alive = false
         die()
         return
 
+    $EffectsPlayer.play("FlashWhite")
+
     kick_direction = hit_direction
     kick_speed = damage * 8
     if kick_speed > max_kick:
         kick_speed = max_kick
-
-    # death condition
     
     custom_take_hit(damage, hit_direction)
 
@@ -68,8 +65,10 @@ func bleed(hit_direction) -> void:
     for _i in range(blood_drops):
         var blood_instance = blood.instance()
         blood_instance.global_position = global_position
-        var blood_speed = Vector2(randf() * 3 * hit_direction.x, randf() * 1.5 * hit_direction.y)
+        
+        var blood_speed = Vector2(rand_range(-1,1) * 3 * hit_direction.x, rand_range(-1,1) * 1.5 * hit_direction.y)
         blood_instance.speed = blood_speed
+        
         root.call_deferred("add_child", blood_instance)
 
 

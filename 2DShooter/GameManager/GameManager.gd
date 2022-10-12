@@ -12,6 +12,9 @@ export var shop_probability : float = 0.3
 # progression stuff
 var money = 10_000 setget set_money, get_money
 
+# all weapons the player can use and upgrade
+export(Array, Resource) var player_weapons
+
 # haven't found a better way yet.
 # this will do for now
 onready var upgrades = {
@@ -21,19 +24,17 @@ onready var upgrades = {
     "dash_cooldown": 0.0,
     "weapons": {} # populated in _ready()
    }
-var weapon_names = ["pistol", "smg", "shotgun", "grenade_launcher", "railgun"]
 
 
 func _ready() -> void:
     GlobalSignal.add_emitter('money_changed', self)
-    GlobalSignal.emit_signal_when_ready('money_changed', [money], self)
 
     # generate upgrade dictionaries for each weapon
-    for w in weapon_names:
-        upgrades["weapons"][w] = {
-            "rate_of_fire" : 0.0,
-            "spread" : 0.0,
-            "damage" : 0.0,
+    for weapon in player_weapons:
+        upgrades["weapons"][weapon.id] = {
+            "rate_of_fire" : 0,
+            "spread" : 0,
+            "damage" : 0,
         }
 
 
@@ -45,7 +46,7 @@ func next_level() -> void:
 
 
 func choose_next_level():
-    if last_level != shop_scene and randf() < shop_probability:
+    if current_level != shop_scene and randf() < shop_probability:
         return shop_scene
     else:
         return arena_scenes[rand_range(0, len(arena_scenes) - 1)]
@@ -58,3 +59,9 @@ func set_money(value):
 
 func get_money():
     return money
+
+
+func find_player_weapon_by_id(id):
+    for weapon in player_weapons:
+        if weapon.id == id:
+            return weapon

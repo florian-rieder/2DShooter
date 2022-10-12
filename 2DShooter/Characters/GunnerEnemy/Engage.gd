@@ -32,7 +32,6 @@ func physics_update(_delta: float) -> void:
     owner.weapon.fire()
 
 
-
 func _on_BurstCooldown_timeout():
     start_burst()
 

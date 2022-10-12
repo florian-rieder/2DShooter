@@ -1,18 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Characters/Character/Character.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Characters/Player/ShakeCamera2D.gd" type="Script" id=2]
 [ext_resource path="res://icon.png" type="Texture" id=3]
-[ext_resource path="res://Weapon/Data/Pistol.tres" type="Resource" id=4]
 [ext_resource path="res://Characters/Player/Lookahead.gd" type="Script" id=5]
 [ext_resource path="res://Weapon/Weapon.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=7]
 [ext_resource path="res://modulate_white.gdshader" type="Shader" id=8]
-[ext_resource path="res://Weapon/Data/GrenadeLauncher.tres" type="Resource" id=9]
-[ext_resource path="res://Weapon/Data/Railgun.tres" type="Resource" id=10]
 [ext_resource path="res://UI/HealthBar/HealthBar.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Weapon/Data/Shotgun.tres" type="Resource" id=12]
-[ext_resource path="res://Weapon/Data/SMG.tres" type="Resource" id=13]
 
 [sub_resource type="ShaderMaterial" id=1]
 resource_local_to_scene = true
@@ -24,7 +19,6 @@ script = ExtResource( 7 )
 health = 200
 max_health = 200
 speed = 200
-weapons = [ ExtResource( 4 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 10 ), ExtResource( 9 ) ]
 
 [node name="Weapon" parent="Top" index="0" instance=ExtResource( 6 )]
 
@@ -43,6 +37,7 @@ target = NodePath("../Lookahead")
 
 [node name="Lookahead" type="Node2D" parent="." index="3"]
 script = ExtResource( 5 )
+kickback_decay = 0.7
 
 [node name="DebugSprite" type="Sprite" parent="Lookahead" index="0"]
 visible = false

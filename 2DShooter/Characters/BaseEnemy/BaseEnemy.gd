@@ -24,10 +24,10 @@ func get_input(_delta):
 
 
 func die():
-    emit_signal('enemy_died', self)
     GameManager.money += randi() % max_money_drop
     if target.health < target.max_health / 2 and randf() < health_drop_probability:
         drop_health()
+    emit_signal('enemy_died', self)
     queue_free()
 
 

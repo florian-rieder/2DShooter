@@ -1,14 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Arena/Arena.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SpawnPoint/SpawnPoint.gd" type="Script" id=2]
 [ext_resource path="res://Weapon/Data/SMG.tres" type="Resource" id=3]
-[ext_resource path="res://ExplosiveBarrel/ExplosiveBarrel.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Weapon/Data/GrenadeLauncher.tres" type="Resource" id=5]
 [ext_resource path="res://Powerup/Powerup.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Weapon/Data/Shotgun.tres" type="Resource" id=8]
 [ext_resource path="res://Weapon/Data/Railgun.tres" type="Resource" id=9]
-[ext_resource path="res://ExplosiveBarrel/ExplosiveBarrelCluster5.tscn" type="PackedScene" id=10]
 
 [node name="TestArena" instance=ExtResource( 1 )]
 enemy_types = {
@@ -36,126 +34,6 @@ entity_layer = NodePath("..")
 position = Vector2( 400, 1200 )
 script = ExtResource( 2 )
 entity_layer = NodePath("..")
-
-[node name="ExplosiveBarrel61" parent="Scenery" index="0" instance=ExtResource( 4 )]
-position = Vector2( 795, 467 )
-
-[node name="ExplosiveBarrel62" parent="Scenery" index="1" instance=ExtResource( 4 )]
-position = Vector2( 279, 672 )
-
-[node name="ExplosiveBarrel63" parent="Scenery" index="2" instance=ExtResource( 4 )]
-position = Vector2( 341, 1035 )
-
-[node name="ExplosiveBarrel64" parent="Scenery" index="3" instance=ExtResource( 4 )]
-position = Vector2( 120, 1249 )
-
-[node name="ExplosiveBarrel65" parent="Scenery" index="4" instance=ExtResource( 4 )]
-position = Vector2( 939, 1260 )
-
-[node name="ExplosiveBarrel66" parent="Scenery" index="5" instance=ExtResource( 4 )]
-position = Vector2( 1184, 1025 )
-
-[node name="ExplosiveBarrel67" parent="Scenery" index="6" instance=ExtResource( 4 )]
-position = Vector2( 1192, 730 )
-
-[node name="ExplosiveBarrel68" parent="Scenery" index="7" instance=ExtResource( 4 )]
-position = Vector2( 1072, 434 )
-
-[node name="ExplosiveBarrel69" parent="Scenery" index="8" instance=ExtResource( 4 )]
-position = Vector2( 1407, 159 )
-
-[node name="ExplosiveBarrel70" parent="Scenery" index="9" instance=ExtResource( 4 )]
-position = Vector2( 1552, 286 )
-
-[node name="ExplosiveBarrel71" parent="Scenery" index="10" instance=ExtResource( 4 )]
-position = Vector2( 1533, 258 )
-
-[node name="ExplosiveBarrel73" parent="Scenery" index="11" instance=ExtResource( 4 )]
-position = Vector2( 977, 694 )
-
-[node name="ExplosiveBarrel74" parent="Scenery" index="12" instance=ExtResource( 4 )]
-position = Vector2( 917, 1137 )
-
-[node name="ExplosiveBarrel75" parent="Scenery" index="13" instance=ExtResource( 4 )]
-position = Vector2( 1310, 1017 )
-
-[node name="ExplosiveBarrel76" parent="Scenery" index="14" instance=ExtResource( 4 )]
-position = Vector2( 1267, 930 )
-
-[node name="ExplosiveBarrel77" parent="Scenery" index="15" instance=ExtResource( 4 )]
-position = Vector2( 542, 964 )
-
-[node name="ExplosiveBarrel78" parent="Scenery" index="16" instance=ExtResource( 4 )]
-position = Vector2( 308, 867 )
-
-[node name="ExplosiveBarrel79" parent="Scenery" index="17" instance=ExtResource( 4 )]
-position = Vector2( 179, 771 )
-
-[node name="ExplosiveBarrel72" parent="Scenery" index="18" instance=ExtResource( 4 )]
-position = Vector2( 143, 23 )
-
-[node name="ExplosiveBarrelCluster5" parent="Scenery" index="19" instance=ExtResource( 10 )]
-position = Vector2( 272, 517 )
-
-[node name="ExplosiveBarrelCluster10" parent="Scenery" index="20" instance=ExtResource( 10 )]
-position = Vector2( 209, 1015 )
-
-[node name="ExplosiveBarrelCluster11" parent="Scenery" index="21" instance=ExtResource( 10 )]
-position = Vector2( 590, 1065 )
-
-[node name="ExplosiveBarrelCluster12" parent="Scenery" index="22" instance=ExtResource( 10 )]
-position = Vector2( 776, 1224 )
-
-[node name="ExplosiveBarrelCluster13" parent="Scenery" index="23" instance=ExtResource( 10 )]
-position = Vector2( 1071, 1144 )
-
-[node name="ExplosiveBarrelCluster24" parent="Scenery" index="24" instance=ExtResource( 10 )]
-position = Vector2( 1044, 925 )
-
-[node name="ExplosiveBarrelCluster25" parent="Scenery" index="25" instance=ExtResource( 10 )]
-position = Vector2( 644, 689 )
-
-[node name="ExplosiveBarrelCluster14" parent="Scenery" index="26" instance=ExtResource( 10 )]
-position = Vector2( 1427, 1497 )
-
-[node name="ExplosiveBarrelCluster15" parent="Scenery" index="27" instance=ExtResource( 10 )]
-position = Vector2( 1154, 1363 )
-
-[node name="ExplosiveBarrelCluster16" parent="Scenery" index="28" instance=ExtResource( 10 )]
-position = Vector2( 875, 1532 )
-
-[node name="ExplosiveBarrelCluster17" parent="Scenery" index="29" instance=ExtResource( 10 )]
-position = Vector2( 543, 1408 )
-
-[node name="ExplosiveBarrelCluster18" parent="Scenery" index="30" instance=ExtResource( 10 )]
-position = Vector2( 223, 1472 )
-
-[node name="ExplosiveBarrelCluster19" parent="Scenery" index="31" instance=ExtResource( 10 )]
-position = Vector2( 43, 955 )
-
-[node name="ExplosiveBarrelCluster20" parent="Scenery" index="32" instance=ExtResource( 10 )]
-position = Vector2( 1514, 981 )
-
-[node name="ExplosiveBarrelCluster21" parent="Scenery" index="33" instance=ExtResource( 10 )]
-position = Vector2( 1374, 1219 )
-
-[node name="ExplosiveBarrelCluster22" parent="Scenery" index="34" instance=ExtResource( 10 )]
-position = Vector2( 1361, 770 )
-
-[node name="ExplosiveBarrelCluster23" parent="Scenery" index="35" instance=ExtResource( 10 )]
-position = Vector2( 1385, 377 )
-
-[node name="ExplosiveBarrelCluster6" parent="Scenery" index="36" instance=ExtResource( 10 )]
-position = Vector2( 638, 435 )
-
-[node name="ExplosiveBarrelCluster7" parent="Scenery" index="37" instance=ExtResource( 10 )]
-position = Vector2( 724, 186 )
-
-[node name="ExplosiveBarrelCluster8" parent="Scenery" index="38" instance=ExtResource( 10 )]
-position = Vector2( 1007, 193 )
-
-[node name="ExplosiveBarrelCluster9" parent="Scenery" index="39" instance=ExtResource( 10 )]
-position = Vector2( 366, 119 )
 
 [node name="Powerup" parent="." index="4" instance=ExtResource( 6 )]
 position = Vector2( 512, 794 )

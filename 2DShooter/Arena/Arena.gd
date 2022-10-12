@@ -2,6 +2,8 @@ extends Node2D
 
 class_name Arena
 
+signal arena_cleared
+
 const Util = preload("res://Utility.gd")
 
 # enemies
@@ -26,6 +28,8 @@ export var target_difficulty = 1
 func _ready():
     spawnpoints = get_spawnpoints()
     wave_timer.start(wave_timeout)
+
+    GlobalSignal.add_emitter("arena_cleared", self)
 
 
 func sense_difficulty():
@@ -72,6 +76,16 @@ func spawn_wave():
         enemies.append(new_enemy)
 
 
+func arena_cleared():
+    player.can_control = false
+    player.velocity = Vector2.ZERO
+    wave_timer.stop()
+    # kill all enemies (THEY ALL EXPLODE FROM THE INSIDE)
+    for enemy in enemies.duplicate():
+        enemy.call("take_hit", 99999, Vector2.ONE)
+    emit_signal("arena_cleared")
+
+
 func _on_enemy_died(enemy):
     kill_count += 1
     var i = 0
@@ -114,8 +128,12 @@ func get_random_offscreen_spawnpoint():
 
     # TODO: select spawnpoint
     if len(possible_spawnpoints) <= 0:
-        print('No spawnpoint available')
+        print_debug('No spawnpoint available')
         return
 
     return possible_spawnpoints[randi() % len(possible_spawnpoints)]
 
+
+
+func _on_LevelTimer_timeout():
+    arena_cleared()

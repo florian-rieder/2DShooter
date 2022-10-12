@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0.730104, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 0.917647, 0, 0 )
+
+[node name="ConfettiCannon" type="CPUParticles2D"]
+z_index = -10
+amount = 64
+lifetime = 4.0
+explosiveness = 0.68
+direction = Vector2( 0.8, -1.5 )
+spread = 20.0
+gravity = Vector2( 0, 150 )
+initial_velocity = 300.0
+initial_velocity_random = 0.25
+damping = 100.0
+angle = 360.0
+angle_random = 1.0
+scale_amount = 2.0
+scale_amount_random = 1.0
+color_ramp = SubResource( 6 )
+hue_variation = 0.45
+hue_variation_random = 1.0

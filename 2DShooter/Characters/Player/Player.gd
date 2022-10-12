@@ -16,7 +16,7 @@ var dashing = false
 # invulnerability
 export var invulnerability_duration = 1.0
 # weapon inventory
-export(Array, Resource) var weapons = []
+var weapons = GameManager.player_weapons
 var current_weapon_index = 0
 
 var can_control = true
@@ -24,14 +24,12 @@ var can_control = true
 func _ready():
     GlobalSignal.add_emitter("weapon_changed", self)
     GlobalSignal.emit_signal_when_ready('weapon_changed', [weapon.weapon], self)
-    
+
     # apply upgrades
     max_health              *= 1 + GameManager.upgrades["max_health"]
     speed                   *= 1 + GameManager.upgrades["speed"]
     dash_speed              *= 1 + GameManager.upgrades["dash_speed"]
     $DashCooldown.wait_time *= 1 - GameManager.upgrades["dash_cooldown"]
-    
-    weapon.upgrades = GameManager.upgrades["weapons"]
 
     healthbar.set_max_value(max_health)
 
@@ -65,15 +63,12 @@ func get_input(_delta):
         current_weapon_index += 1
         if current_weapon_index > len(weapons) - 1:
             current_weapon_index = 0
-        weapon.set_weapon(weapons[current_weapon_index])
-        emit_signal('weapon_changed', weapon.weapon)        
+        change_weapon(weapons[current_weapon_index])  
     if Input.is_action_just_released('weapon_down'):
         current_weapon_index -= 1
         if current_weapon_index < 0:
             current_weapon_index = len(weapons) - 1
-        weapon.set_weapon(weapons[current_weapon_index])
-        emit_signal('weapon_changed', weapon.weapon)
-        
+        change_weapon(weapons[current_weapon_index])
 
     # give the current direction to the camera focus
     lookahead.call('direction', velocity, get_local_mouse_position())
@@ -113,7 +108,7 @@ func change_weapon(new_weapon) -> void:
     weapon.damage_upgrade = GameManager.upgrades["weapons"][new_weapon.id]["damage"]
     # set weapon
     weapon.set_weapon(new_weapon)
-    emit_signal('weapon_changed', weapon.weapon)
+    emit_signal('weapon_changed', new_weapon)
 
 
 func dash():

@@ -15,7 +15,7 @@ shader_param/active = false
 radius = 16.0
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 300.0
+radius = 200.0
 
 [node name="MechEnemy" instance=ExtResource( 1 )]
 script = ExtResource( 4 )
@@ -39,8 +39,8 @@ shape = SubResource( 2 )
 
 [node name="Engage" parent="StateMachine" index="1"]
 burst_behavior = true
-burst_cooldown = 1.0
-burst_duration = 0.8
+burst_cooldown = 2.0
+burst_duration = 1.0
 
 [node name="BurstCooldown" parent="StateMachine/Engage" index="0"]
 one_shot = true

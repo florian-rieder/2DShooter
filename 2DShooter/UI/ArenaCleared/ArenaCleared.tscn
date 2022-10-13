@@ -39,9 +39,9 @@ anchor_bottom = 1.0
 alignment = 1
 
 [node name="Title" type="Label" parent="VBoxContainer"]
-margin_top = 95.0
+margin_top = 115.0
 margin_right = 640.0
-margin_bottom = 135.0
+margin_bottom = 155.0
 theme = ExtResource( 2 )
 custom_colors/font_color = Color( 1, 0.733333, 0.176471, 1 )
 custom_fonts/font = SubResource( 1 )
@@ -51,16 +51,16 @@ valign = 1
 uppercase = true
 
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
-margin_top = 139.0
+margin_top = 159.0
 margin_right = 640.0
-margin_bottom = 215.0
+margin_bottom = 195.0
 custom_constants/margin_right = 50
 custom_constants/margin_left = 50
 
 [node name="KillsContainer" type="GridContainer" parent="VBoxContainer/MarginContainer"]
 margin_left = 50.0
 margin_right = 590.0
-margin_bottom = 76.0
+margin_bottom = 36.0
 size_flags_vertical = 3
 theme = ExtResource( 2 )
 columns = 2
@@ -80,23 +80,24 @@ text = "999"
 align = 2
 
 [node name="Specials" type="Label" parent="VBoxContainer/MarginContainer/KillsContainer"]
+visible = false
 margin_top = 40.0
 margin_right = 506.0
 margin_bottom = 76.0
 text = "Special kills"
 
 [node name="SpecialCount" type="Label" parent="VBoxContainer/MarginContainer/KillsContainer"]
-margin_left = 510.0
+visible = false
 margin_top = 40.0
-margin_right = 540.0
+margin_right = 506.0
 margin_bottom = 76.0
 text = "99"
 align = 2
 
 [node name="ButtonsContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 219.0
+margin_top = 199.0
 margin_right = 640.0
-margin_bottom = 265.0
+margin_bottom = 245.0
 theme = ExtResource( 2 )
 alignment = 1
 
@@ -139,7 +140,6 @@ anchor_bottom = 1.0
 
 [node name="ConfettiCannon" parent="ConfettiCannonLeft" instance=ExtResource( 5 )]
 emitting = false
-one_shot = true
 
 [node name="ConfettiCannonRight" type="Control" parent="."]
 anchor_left = 1.0
@@ -150,7 +150,6 @@ anchor_bottom = 1.0
 [node name="ConfettiCannon" parent="ConfettiCannonRight" instance=ExtResource( 5 )]
 scale = Vector2( -1, 1 )
 emitting = false
-one_shot = true
 
 [connection signal="pressed" from="VBoxContainer/ButtonsContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="VBoxContainer/ButtonsContainer/Menu" to="." method="_on_Menu_pressed"]

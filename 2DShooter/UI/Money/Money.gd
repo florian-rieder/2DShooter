@@ -9,5 +9,5 @@ func _ready():
 func _on_Player_money_changed(value) -> void:
     $Money.text = str(value)
 
-func _on_Arena_cleared():
+func _on_Arena_cleared(_kills):
     visible = false

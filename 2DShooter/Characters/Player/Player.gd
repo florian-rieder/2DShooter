@@ -8,13 +8,14 @@ onready var weapon = $Top/Weapon
 onready var camera = $Camera2D
 onready var healthbar = $HealthBar
 # dash
-export var dash_duration = 0.3
-export var dash_speed = 400
+export(float) var dash_duration = 0.3
+export(float) var dash_speed = 400
 var current_dash_speed = 0
 var can_dash = true
 var dashing = false
 # invulnerability
-export var invulnerability_duration = 1.0
+export(float) var invulnerability_duration = 1.0
+export(float, 0, 1) var invulnerability_alpha = 0.8
 # weapon inventory
 var weapons = GameManager.player_weapons
 var current_weapon_index = 0
@@ -47,10 +48,6 @@ func get_input(_delta):
         velocity.y += 1
     if Input.is_action_pressed('up'):
         velocity.y -= 1
-
-    # DEBUG
-    if Input.is_key_pressed(KEY_C):
-        camera.add_trauma(0.1)
 
     if Input.is_action_pressed('fire'):
         weapon.fire()
@@ -141,7 +138,7 @@ func custom_take_hit(_damage, _hit_direction) -> void:
     # invulnerability
     $Invulnerability.start(invulnerability_duration)
     invulnerable = true
-    modulate.a = 0.8
+    modulate.a = invulnerability_alpha
     # health bar
     healthbar.update_bar(health)
 

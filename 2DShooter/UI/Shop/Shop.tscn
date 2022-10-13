@@ -15,6 +15,7 @@ theme = ExtResource( 4 )
 script = ExtResource( 1 )
 weapons_grid = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MarginContainer/GridContainer")
 focused_weapon_texture_rect = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/CenterContainer/TextureRect")
+focused_weapon_title = NodePath("MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/WeaponTitle")
 weapon_grid_button = ExtResource( 7 )
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -42,17 +43,18 @@ text = "Shop"
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
 margin_top = 44.0
 margin_right = 590.0
-margin_bottom = 79.0
+margin_bottom = 326.0
+size_flags_vertical = 3
 custom_constants/separation = 16
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_right = 459.0
-margin_bottom = 35.0
+margin_bottom = 282.0
 size_flags_horizontal = 3
 
 [node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer"]
 margin_right = 459.0
-margin_bottom = 35.0
+margin_bottom = 282.0
 custom_constants/vseparation = 10
 custom_constants/hseparation = 10
 columns = 3
@@ -60,45 +62,54 @@ columns = 3
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 margin_left = 475.0
 margin_right = 590.0
-margin_bottom = 35.0
+margin_bottom = 282.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.25
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2"]
 margin_right = 115.0
-margin_bottom = 35.0
+margin_bottom = 282.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_stretch_ratio = 0.0
-alignment = 1
+
+[node name="WeaponTitle" type="Label" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+margin_right = 115.0
+margin_bottom = 52.0
+custom_constants/line_spacing = -20
+text = "Title
+launcher"
+align = 1
+autowrap = true
 
 [node name="CenterContainer" type="AspectRatioContainer" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
+margin_top = 56.0
 margin_right = 115.0
-margin_bottom = 5.0
+margin_bottom = 252.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 stretch_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer/CenterContainer"]
-margin_top = -55.0
-margin_right = 115.0
-margin_bottom = 60.0
+margin_left = -40.5
+margin_right = 155.5
+margin_bottom = 196.0
 size_flags_horizontal = 3
 texture = ExtResource( 2 )
 stretch_mode = 6
 
 [node name="UpgradeButton" type="Button" parent="MarginContainer/VBoxContainer/HBoxContainer/MarginContainer2/VBoxContainer"]
-margin_top = 9.0
+margin_top = 256.0
 margin_right = 115.0
-margin_bottom = 35.0
+margin_bottom = 282.0
 custom_fonts/font = ExtResource( 3 )
 text = "Upgrade"
 
-[node name="Money" parent="." instance=ExtResource( 5 )]
-anchor_top = 1.0
-anchor_bottom = 1.0
-margin_left = -30.0
-margin_top = -20.0
-margin_right = 0.0
+[node name="Money" parent="MarginContainer/VBoxContainer" instance=ExtResource( 5 )]
+anchor_left = 0.0
+anchor_right = 0.0
+margin_top = 330.0
+margin_right = 590.0
+margin_bottom = 350.0
 
 [node name="ExitButton" type="Button" parent="."]
 anchor_left = 1.0

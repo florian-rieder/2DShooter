@@ -2,7 +2,7 @@ extends Node2D
 
 class_name Arena
 
-signal arena_cleared
+signal arena_cleared(kills)
 
 const Util = preload("res://Utility.gd")
 
@@ -81,9 +81,11 @@ func arena_cleared():
     player.velocity = Vector2.ZERO
     wave_timer.stop()
     # kill all enemies (THEY ALL EXPLODE FROM THE INSIDE)
+    # duplicate is necessary to iterate through all enemies, as they are being
+    # destroyed and removed from the original array
     for enemy in enemies.duplicate():
         enemy.call("take_hit", 99999, Vector2.ONE)
-    emit_signal("arena_cleared")
+    emit_signal("arena_cleared", kill_count)
 
 
 func _on_enemy_died(enemy):

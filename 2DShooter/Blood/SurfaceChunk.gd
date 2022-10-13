@@ -26,6 +26,7 @@ func draw_image(image : Image, image_size, draw_pos : Vector2) -> void:
 func reset() -> void:
     # erase everything
     surface_image.fill(Color.transparent)
+    surface_changed = true
 
 
 func _physics_process(_delta: float) -> void:

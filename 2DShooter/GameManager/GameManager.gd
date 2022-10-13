@@ -39,6 +39,7 @@ func _ready() -> void:
 
 
 func next_level() -> void:
+    Surface.reset()
     var next_level = choose_next_level()
     last_level = current_level
     current_level = next_level

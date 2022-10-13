@@ -10,13 +10,9 @@ func _ready() -> void:
     $ConfettiCannonRight/ConfettiCannon.emitting = true
 
 
-func update_labels(data : Dictionary) -> void:
-    # update kill count labels
-    kills_label.text = data.kills
-    specials_label.text = data.specials
-
-
-func _on_Arena_cleared():
+func _on_Arena_cleared(kills):
+    # update kill count labels    
+    kills_label.text = str(kills)
     visible = true
 
 
